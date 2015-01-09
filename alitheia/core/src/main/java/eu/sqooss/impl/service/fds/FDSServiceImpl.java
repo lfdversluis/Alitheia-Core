@@ -90,6 +90,9 @@ public class FDSServiceImpl implements FDSService, Runnable {
 
     private BundleContext bc;
 
+    /**
+     * Constructor
+     */
     public FDSServiceImpl() { }
 
     /**
@@ -230,11 +233,8 @@ public class FDSServiceImpl implements FDSService, Runnable {
         try {
             SCMAccessor svn = a.getSCMAccessor();
             if (svn == null) {
-                logger
-                        .warn("No SCM available for "
-                                + pv.getProject().getName());
-                throw new CheckoutException(
-                        "No SCM accessor available for project "
+                logger.warn("No SCM available for " + pv.getProject().getName());
+                throw new CheckoutException("No SCM accessor available for project "
                                 + pv.getProject().getName());
             }
         } catch (InvalidAccessorException e) {
@@ -269,9 +269,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
      * Atomically check whether the checkout can be updated
      */
     private synchronized boolean isUpdatable(OnDiskCheckout c) {
-        if (checkoutHandles.get(c) > 0)
-            return false;
-        return true;
+    	return checkoutHandles.get(c) <= 0;
     }
 
     // Cache key ops
@@ -295,12 +293,8 @@ public class FDSServiceImpl implements FDSService, Runnable {
         }
 
         File checkoutFile = projectFileLocal(pf, projectRevision);
-        if (checkoutFile == null) {
-            return null;
-        }
-
         SCMAccessor scm = projectFileAccessor(pf);
-        if (scm == null) {
+        if (checkoutFile == null || scm == null) {
             return null;
         }
 
@@ -367,14 +361,12 @@ public class FDSServiceImpl implements FDSService, Runnable {
     }
 
     /** {@inheritDoc} */
-    public InMemoryCheckout getInMemoryCheckout(ProjectVersion pv)
-            throws CheckoutException {
+    public InMemoryCheckout getInMemoryCheckout(ProjectVersion pv) throws CheckoutException {
         return getInMemoryCheckout(pv, Pattern.compile(".*"));
     }
 
     /** {@inheritDoc} */
-    public InMemoryCheckout getInMemoryCheckout(ProjectVersion pv,
-            Pattern pattern) throws CheckoutException {
+    public InMemoryCheckout getInMemoryCheckout(ProjectVersion pv, Pattern pattern) throws CheckoutException {
 
         if (!canCheckout(pv)) {
             return null;
@@ -398,8 +390,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
     }
 
     /** {@inheritDoc} */
-    public OnDiskCheckout getCheckout(ProjectVersion pv, String path)
-            throws CheckoutException {
+    public OnDiskCheckout getCheckout(ProjectVersion pv, String path) throws CheckoutException {
 
         if (!canCheckout(pv)) {
             return null;
@@ -428,15 +419,10 @@ public class FDSServiceImpl implements FDSService, Runnable {
     }
 
     /** {@inheritDoc} */
-    public boolean updateCheckout(OnDiskCheckout c, ProjectVersion pv)
-            throws CheckoutException {
-
-        if (c == null) {
-            return false;
-        }
-
-        // Check if the checkout is held by another client before updating
-        if (!isUpdatable(c)) {
+    public boolean updateCheckout(OnDiskCheckout c, ProjectVersion pv) throws CheckoutException {
+    	
+    	// Check if c is not null or if the checkout is held by another client before updating
+        if (c == null || !isUpdatable(c)) {
             return false;
         }
 
