@@ -56,7 +56,6 @@ import eu.sqooss.service.logging.Logger;
 import eu.sqooss.service.tds.InvalidAccessorException;
 import eu.sqooss.service.tds.InvalidProjectRevisionException;
 import eu.sqooss.service.tds.InvalidRepositoryException;
-import eu.sqooss.service.tds.PathChangeType;
 import eu.sqooss.service.tds.ProjectAccessor;
 import eu.sqooss.service.tds.Revision;
 import eu.sqooss.service.tds.SCMAccessor;
@@ -96,7 +95,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
     /**
      * The FDS considers its checkout root to be 'private' and will write all
      * kinds of stuff in there. The checkouts need to be cleaned up on shutdown
-     * at the very least, in order to avoid polluting the filesystem with
+     * at the very least, in order to avoid polluting the file system with
      * orphaned checkout directories.
      * 
      */
@@ -107,7 +106,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
         }
 
         public void run() {
-            System.err.println("Cleaning up " + fdsCheckoutRoot);
+            System.out.println("Cleaning up " + fdsCheckoutRoot);
             logger.info("Cleaning up " + fdsCheckoutRoot);
             DiskUtil.rmRf(fdsCheckoutRoot);
         }
@@ -149,34 +148,6 @@ public class FDSServiceImpl implements FDSService, Runnable {
     }
 
     /**
-     * For a project file, return the SCM revision that it refers to.
-     * 
-     * @param pf
-     *            The ProjectFile to look up.
-     * @return The SCM revision for the project or null if the project file is
-     *         deleted or otherwise unavailable.
-     */
-    private Revision projectFileRevision(ProjectFile pf) {
-        // Make sure that the file exists in the specified project version
-        String fileStatus = pf.getState().toString();
-        if (PathChangeType.valueOf(fileStatus) == PathChangeType.DELETED) {
-            return null;
-        }
-
-        String projectVersion = pf.getProjectVersion().getRevisionId();
-        long projectId = pf.getProjectVersion().getProject().getId();
-        try {
-            return tds.getAccessor(projectId).getSCMAccessor().newRevision(
-                    projectVersion);
-        } catch (InvalidAccessorException e) {
-            logger.error("Invalid SCM accessor for project "
-                    + pf.getProjectVersion().getProject().getName() + " "
-                    + e.getMessage());
-            return null;
-        }
-    }
-
-    /**
      * Get the File where the given project file will be cached locally by the
      * FDS.
      * 
@@ -191,7 +162,8 @@ public class FDSServiceImpl implements FDSService, Runnable {
     private File projectFileLocal(ProjectFile pf, Revision r) {
         Revision pr = null;
         if (r == null) {
-            pr = projectFileRevision(pf);
+        	RevisionManager revisionManager = new RevisionManager(logger);
+            pr = revisionManager.projectFileRevision(pf, tds);
         } else {
             pr = r;
         }
@@ -312,27 +284,12 @@ public class FDSServiceImpl implements FDSService, Runnable {
                 + pv.getRevisionId();
     }
 
-    /**
-     * Convert between database and SCM revision representations
-     */
-    private static Revision projectVersionToRevision(ProjectVersion pv) {
-        TDSService tds = AlitheiaCore.getInstance().getTDSService();
-        SCMAccessor scm = null;
-
-        if (tds.accessorExists(pv.getProject().getId())) {
-            scm = (SCMAccessor) tds.getAccessor(pv.getProject().getId());
-        } else {
-            return null;
-        }
-
-        return scm.newRevision(pv.getRevisionId());
-    }
-
     // ===[ INTERFACE METHODS ]===============================================
 
     /** {@inheritDoc} */
     public synchronized File getFile(ProjectFile pf) {
-        Revision projectRevision = projectFileRevision(pf);
+    	RevisionManager revisionManager = new RevisionManager(logger);
+        Revision projectRevision = revisionManager.projectFileRevision(pf, tds);
         if (projectRevision == null) {
             return null;
         }
@@ -383,7 +340,8 @@ public class FDSServiceImpl implements FDSService, Runnable {
     /** {@inheritDoc} */
     public InputStream getFileContents(ProjectFile pf) {
 
-        Revision projectRevision = projectFileRevision(pf);
+    	RevisionManager revisionManager = new RevisionManager(logger);
+        Revision projectRevision = revisionManager.projectFileRevision(pf, tds);
         if (projectRevision == null) {
             return null;
         }
@@ -404,8 +362,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
                     + "repository: " + e.getMessage());
         }
 
-        ByteArrayInputStream contents = new ByteArrayInputStream(buff
-                .toByteArray());
+        ByteArrayInputStream contents = new ByteArrayInputStream(buff.toByteArray());
         return contents;
     }
 
@@ -499,9 +456,10 @@ public class FDSServiceImpl implements FDSService, Runnable {
         SCMAccessor scm = (SCMAccessor) AlitheiaCore.getInstance()
                 .getTDSService().getAccessor(pv.getProject().getId());
         try {
+        	RevisionManager revisionManager = new RevisionManager(logger);
             scm.updateCheckout(cimpl.getRepositoryPath(),
-                    projectVersionToRevision(cimpl.getProjectVersion()),
-                    projectVersionToRevision(pv), cimpl.getRoot());
+                    revisionManager.projectVersionToRevision(cimpl.getProjectVersion()),
+                    revisionManager.projectVersionToRevision(pv), cimpl.getRoot());
             cimpl.setRevision(pv);
 
         } catch (InvalidProjectRevisionException e) {
