@@ -10,16 +10,29 @@ import eu.sqooss.service.tds.Revision;
 import eu.sqooss.service.tds.SCMAccessor;
 import eu.sqooss.service.tds.TDSService;
 
+/**
+ * This class can be queried for functionality regarding Revisions.
+ * While performing functions it will write to the console using a Logger object.
+ */
 public class RevisionManager {
 	
 	private Logger logger;
 	
+	/**
+	 * The constructor of the RevisionManager class.
+	 * @param logger The logger to write lines to the console, 
+	 * allowing for debugging or monitoring.
+	 */
 	public RevisionManager(Logger logger){
 		this.logger = logger;
 	}
 	
 	/**
      * Convert between database and SCM revision representations
+     * 
+     * @param pv The ProjectVersion of the project
+     * 
+     * @return A new Revision of the project.
      */
     public Revision projectVersionToRevision(ProjectVersion pv) {
         TDSService tds = AlitheiaCore.getInstance().getTDSService();
@@ -37,8 +50,9 @@ public class RevisionManager {
     /**
      * For a project file, return the SCM revision that it refers to.
      * 
-     * @param pf
-     *            The ProjectFile to look up.
+     * @param pf The ProjectFile to look up.
+     * @param tds The TDSService to query project data.
+     * 
      * @return The SCM revision for the project or null if the project file is
      *         deleted or otherwise unavailable.
      */
