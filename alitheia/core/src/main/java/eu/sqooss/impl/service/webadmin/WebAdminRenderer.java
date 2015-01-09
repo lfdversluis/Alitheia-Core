@@ -69,28 +69,32 @@ public class WebAdminRenderer  extends AbstractView {
      * @return a String representing the HTML table
      */
     public static String renderJobFailStats() {
-        StringBuilder result = new StringBuilder();
-        HashMap<String,Integer> fjobs = sobjSched.getSchedulerStats().getFailedJobTypes();
-        result.append("<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n");
-        result.append("\t<thead>\n");
-        result.append("\t\t<tr>\n");
-        result.append("\t\t\t<td>Job Type</td>\n");
-        result.append("\t\t\t<td>Num Jobs Failed</td>\n");
-        result.append("\t\t</tr>\n");
-        result.append("\t</thead>\n");
-        result.append("\t<tbody>\n");
+        return renderJobs(sobjSched.getSchedulerStats().getFailedJobTypes(),
+        		"\t\t\t<td>Num Jobs Failed</td>\n");
+    }
+    
+    public static String renderJobs(HashMap<String,Integer> jobs, String title){
+    	 StringBuilder result = new StringBuilder();
+         result.append("<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n");
+         result.append("\t<thead>\n");
+         result.append("\t\t<tr>\n");
+         result.append("\t\t\t<td>Job Type</td>\n");
+         result.append(title);
+         result.append("\t\t</tr>\n");
+         result.append("\t</thead>\n");
+         result.append("\t<tbody>\n");
 
-        String[] jobfailures = fjobs.keySet().toArray(new String[1]);
-        for(String key : jobfailures) {
-            result.append("\t\t<tr>\n\t\t\t<td>");
-            result.append(key==null ? "No failures" : key);
-            result.append("</td>\n\t\t\t<td>");
-            result.append(key==null ? "&nbsp;" : fjobs.get(key));
-            result.append("\t\t\t</td>\n\t\t</tr>");
-        }
-        result.append("\t</tbody>\n");
-        result.append("</table>");
-        return result.toString();
+         String[] jobfailures = jobs.keySet().toArray(new String[1]);
+         for(String key : jobfailures) {
+             result.append("\t\t<tr>\n\t\t\t<td>");
+             result.append(key==null ? "No failures" : key);
+             result.append("</td>\n\t\t\t<td>");
+             result.append(key==null ? "&nbsp;" : jobs.get(key));
+             result.append("\t\t\t</td>\n\t\t</tr>");
+         }
+         result.append("\t</tbody>\n");
+         result.append("</table>");
+         return result.toString();
     }
 
     /**
@@ -223,28 +227,8 @@ public class WebAdminRenderer  extends AbstractView {
     
 
     public static String renderJobWaitStats() {
-        StringBuilder result = new StringBuilder();
-        HashMap<String,Integer> wjobs = sobjSched.getSchedulerStats().getWaitingJobTypes();
-        result.append("<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n");
-        result.append("\t<thead>\n");
-        result.append("\t\t<tr>\n");
-        result.append("\t\t\t<td>Job Type</td>\n");
-        result.append("\t\t\t<td>Num Jobs Waiting</td>\n");
-        result.append("\t\t</tr>\n");
-        result.append("\t</thead>\n");
-        result.append("\t<tbody>\n");
-
-        String[] jobfailures = wjobs.keySet().toArray(new String[1]);
-        for(String key : jobfailures) {
-            result.append("\t\t<tr>\n\t\t\t<td>");
-            result.append(key==null ? "No failures" : key);
-            result.append("</td>\n\t\t\t<td>");
-            result.append(key==null ? "&nbsp;" : wjobs.get(key));
-            result.append("\t\t\t</td>\n\t\t</tr>");
-        }
-        result.append("\t</tbody>\n");
-        result.append("</table>");
-        return result.toString();
+        return renderJobs(sobjSched.getSchedulerStats().getWaitingJobTypes(),
+        		"\t\t\t<td>Num Jobs Waiting</td>\n");
     }
 
     public static String renderJobRunStats() {

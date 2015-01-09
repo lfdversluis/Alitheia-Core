@@ -544,57 +544,45 @@ public class DBServiceImpl implements DBService, AlitheiaCoreService {
     /* (non-Javadoc)
      * @see eu.sqooss.service.db.DBService#addRecords(java.util.List)
      */
-    public <T extends DAObject> boolean addRecords(List<T> records) {
-        if( !checkSession() )
-            return false;
+    
+    public <T extends DAObject> boolean modifyRecords(boolean save, List<T> records){
+    	 if( !checkSession() )
+             return false;
 
-        DAObject lastRecord = null;
-        try {
-            Session s = sessionFactory.getCurrentSession();
-            for (DAObject record : records) {
-                lastRecord = record;
-                s.save(record);				
-            }
-            lastRecord = null;
-            s.flush();
-            return true;
-        } catch (HibernateException e) {
-            if (lastRecord != null) {
-                logger.error("Failed to add object "
-                        + "[" + lastRecord.getClass().getName() + ":" + lastRecord.getId() + "]"
-                        + " to the database: " + e.getMessage());
-            }
-            logExceptionAndTerminateSession(e);
-            return false;
-        }
+         DAObject lastRecord = null;
+         try {
+             Session s = sessionFactory.getCurrentSession();
+             for (DAObject record : records) {
+                 lastRecord = record;
+                 if(save){
+                	 s.save(record);	
+                 } else {
+                	 s.delete(record);
+                 }
+             }
+             lastRecord = null;
+             s.flush();
+             return true;
+         } catch (HibernateException e) {
+             if (lastRecord != null) {
+                 logger.error("Failed to modify object, saving = " + save 
+                         + "[" + lastRecord.getClass().getName() + ":" + lastRecord.getId() + "]"
+                         + " in the database: " + e.getMessage());
+             }
+             logExceptionAndTerminateSession(e);
+             return false;
+         }
+    }
+    
+    public <T extends DAObject> boolean addRecords(List<T> records) {
+        return modifyRecords(true, records);
     }
 
     /* (non-Javadoc)
      * @see eu.sqooss.service.db.DBService#deleteRecords(java.util.List)
      */
     public <T extends DAObject> boolean deleteRecords(List<T> records) {
-        if( !checkSession() )
-            return false;
-
-        DAObject lastRecord = null;
-        try {
-            Session s = sessionFactory.getCurrentSession();
-            for (DAObject record : records) {
-                lastRecord = record;
-                s.delete(record);
-            }
-            lastRecord = null;
-            s.flush();
-            return true;
-        } catch (HibernateException e) {
-            if (lastRecord != null) {
-                logger.error("Failed to remove object "
-                        + "[" + lastRecord.getClass().getName() + ":" + lastRecord.getId() + "]"
-                        + " from the database: " + e.getMessage());
-            }
-            logExceptionAndTerminateSession(e);
-            return false;
-        }
+    	return modifyRecords(false, records);
     }
     
     public Logger logger() {

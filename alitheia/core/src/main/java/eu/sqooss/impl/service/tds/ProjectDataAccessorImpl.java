@@ -118,12 +118,11 @@ public class ProjectDataAccessorImpl implements ProjectAccessor {
     	
     	try {
     		URI uri = null;
-    		
     		if ((uri = URIUtills.toURI(scm)) == null) {
             	logger.warn("Error converting to URI: " + scm);
             	return null;
             }
-
+    		
 			if (scmAccessor == null) {
 				scmAccessor = (SCMAccessor) DataAccessorFactory.getInstance(
 						uri, name);

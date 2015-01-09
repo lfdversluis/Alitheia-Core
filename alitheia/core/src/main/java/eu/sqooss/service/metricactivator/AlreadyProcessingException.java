@@ -2,8 +2,8 @@
  * This file is part of the Alitheia system, developed by the SQO-OSS
  * consortium as part of the IST FP6 SQO-OSS project, number 033331.
  *
- * Copyright 2008 - Organization for Free and Open Source Software,  
- *                Athens, Greece.
+ * Copyright 2008 - 2010 - Organization for Free and Open Source Software,  
+ *                 Athens, Greece.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -31,27 +31,23 @@
  *
  */
 
-package eu.sqooss.service.rest;
+package eu.sqooss.service.metricactivator;
 
-import java.util.Set;
+/**
+ * Thrown when a DAO is locked for processing by another metric plugin.
+ * Metrics cannot lock a DAO object; this happens automatically on
+ * entering the metric result calculation code in AbstractMetric to ensure
+ * that no two instances of the metric operate on the same DAO (this happens
+ * often when a metric starts the calculation of another metric as a result
+ * of a metric dependency association). To ensure that a metric transaction
+ * actually sees the results of the calculation of the other metric working
+ * on the same DAO, this exception is thrown.
+ */
+public class AlreadyProcessingException extends Exception {
+    
+    private static final long serialVersionUID = 1L;
 
-import javax.ws.rs.core.Application;
-
-import eu.sqooss.impl.service.rest.RestServiceRegistry;
-
-public class RestServiceApp extends Application {
-
-	public RestServiceApp() {
-	}
-	
-	@Override
-	public Set<Class<?>> getClasses() {
-		
-		return RestServiceRegistry.getInstance().getResources();
-	}
-	
-	@Override
-	public Set<Object> getSingletons() {
-		return null;
-	}
+    public AlreadyProcessingException() {
+        super();
+    }
 }

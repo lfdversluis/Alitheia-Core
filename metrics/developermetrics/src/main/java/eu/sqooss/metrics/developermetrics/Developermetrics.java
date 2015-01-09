@@ -38,11 +38,8 @@ import java.util.Set;
 import org.osgi.framework.BundleContext;
 
 import eu.sqooss.service.abstractmetric.AbstractMetric;
-import eu.sqooss.service.abstractmetric.AlreadyProcessingException;
 import eu.sqooss.service.abstractmetric.MetricDecl;
 import eu.sqooss.service.abstractmetric.MetricDeclarations;
-import eu.sqooss.service.abstractmetric.Result;
-import eu.sqooss.service.abstractmetric.Result.ResultType;
 import eu.sqooss.service.db.Developer;
 import eu.sqooss.service.db.Directory;
 import eu.sqooss.service.db.Metric;
@@ -51,6 +48,9 @@ import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectFileMeasurement;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.ProjectVersionMeasurement;
+import eu.sqooss.service.metricactivator.AlreadyProcessingException;
+import eu.sqooss.service.metricactivator.Result;
+import eu.sqooss.service.metricactivator.Result.ResultType;
 
 /**
  * Basic developer-related statistics, like team size in various

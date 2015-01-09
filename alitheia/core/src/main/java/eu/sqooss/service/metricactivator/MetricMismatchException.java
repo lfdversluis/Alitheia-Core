@@ -1,7 +1,8 @@
 /*
- * This file is part of the Alitheia system.
+ * This file is part of the Alitheia system, developed by the SQO-OSS
+ * consortium as part of the IST FP6 SQO-OSS project, number 033331.
  *
- * Copyright 2010 - Organization for Free and Open Source Software,  
+ * Copyright 2007 - 2010 - Organization for Free and Open Source Software,  
  *                Athens, Greece.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,45 +31,29 @@
  *
  */
 
-package eu.sqooss.service.tds;
+package eu.sqooss.service.metricactivator;
 
-import eu.sqooss.impl.service.tds.diff.UnifiedDiffParser;
+import eu.sqooss.service.db.DAObject;
 
 /**
- * Class that knows how to parse different diff formats.
- * 
- * @author Georgios Gousios <gousiosg@gmail.com>
- *
+ * Since the metrics have generic methods that take a DAO,
+ * we could pass a DAO (of some specific subtype) to a metric
+ * that doesn't support that subtype; this exception flags
+ * those situations. Example: passing a ProjectVerson DAO
+ * to a metric that implements only the ProjectFile metric
+ * subinterface.
  */
-public class DiffFactory {
+public class MetricMismatchException extends Exception {
+    private static final long serialVersionUID = 1L;
 
-    private static DiffFactory instance;
-       
-    public static DiffFactory getInstance() {
-        if (instance == null)
-            instance = new DiffFactory();
-        
-        return instance;
+    public MetricMismatchException(DAObject o) {
+        super("DAO type " + o.getClass().getName() + " is unsupported.");
     }
     
-    /**
-     * 
-     * 
-     * @param start
-     * @param end
-     * @param basePath
-     * @param diff
-     * @return A {@link Diff} object if parsing the diff succeded or null if parsing failed.
-     * 
-     * @see {@link http://en.wikipedia.org/wiki/Diff#Unified_format}
-     */
-    public Diff doUnifiedDiff(Revision start, Revision end, 
-            String basePath, String diff) {
-        
-        UnifiedDiffParser d = new UnifiedDiffParser(start, end, basePath, diff);
-        if (d.parseDiff())
-            return d;
-        
-        return null;
+    public MetricMismatchException(String s) {
+        super(s);
     }
 }
+
+// vi: ai nosi sw=4 ts=4 expandtab
+
