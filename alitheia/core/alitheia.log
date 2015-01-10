@@ -1670,3 +1670,188 @@ INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
 INFO sqooss.fds - Got TDS service for FDS.
 INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
 INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.tds - Added project <test>
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.tds - Added project <test>
+INFO sqooss.db - Created instance of JDBC driver com.mysql.jdbc.Driver
+INFO sqooss.db - Initializing Hibernate with URL <file:/home/laurens/github/Alitheia-Core/alitheia/core/src/main/resources/hibernate.cfg.xml>
+WARN sqooss.db - couln't resolve OSGi install property to a directory on disk :null. Custom DAOs from metrics bundles won't be initialized.
+INFO sqooss.pa - Starting the PluginAdmin component.
+DEBUG sqooss.pa - The PluginAdmin component was successfully started.
+INFO sqooss.scheduler - Starting 16 worker threads
+INFO sqooss.tds - TDS service created.
+INFO sqooss.tds - TDS is now running the stuffer.
+INFO sqooss.tds - TDS Stuffer is finished.
+INFO sqooss.cluster - Got a valid reference to the logger
+INFO sqooss.cluster - Succesfully started clusternode service
+INFO sqooss.cluster - ClusterNode <Laurens-Elitebook> registered succesfully.
+INFO sqooss.fds - Got TDS service for FDS.
+INFO sqooss.fds - No eu.sqooss.fds.root set, using default /var/tmp/alitheia
+INFO sqooss.admin - Action gc: removed 0 actions
+INFO sqooss.tds - Added project <test>
+WARN sqooss.tds - Request for accessor with empty URI
+WARN sqooss.tds - SCM accessor for project <test> could not be initialized

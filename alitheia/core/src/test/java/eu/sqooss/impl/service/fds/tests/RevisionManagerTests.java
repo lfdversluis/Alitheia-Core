@@ -14,6 +14,7 @@ import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
 import eu.sqooss.impl.service.fds.RevisionManager;
+import eu.sqooss.impl.service.tds.TDSServiceImpl;
 import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectFileState;
 import eu.sqooss.service.db.ProjectVersion;
@@ -59,21 +60,19 @@ public class RevisionManagerTests {
 	}
 	
 	@Test
-	public void TestProjectVersionToRevisionSuccess(){
+	public void TestProjectVersionToRevisionSuccess() throws InvalidAccessorException{
 		AlitheiaCore core = act.getAlitheiaCore();
+		TDSService tdsImpl = core.getTDSService();
+		
 		RevisionManager rm = new RevisionManager(l);
 		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
-		TDSService tds = Mockito.mock(TDSService.class);
 		StoredProject sp = Mockito.mock(StoredProject.class);
 		Revision r = Mockito.mock(Revision.class);
-		SCMAccessor scm = Mockito.mock(SCMAccessor.class);
 
-		Mockito.when(AlitheiaCore.getInstance()).thenReturn(core);
-		Mockito.when(core.getTDSService()).thenReturn(tds);
 		Mockito.when(pv.getProject()).thenReturn(sp);
 		Mockito.when(sp.getId()).thenReturn(0l);
-		Mockito.when(tds.accessorExists(0l)).thenReturn(true);
-		Mockito.when(scm.newRevision(pv.getRevisionId())).thenReturn(r);
+		
+		tdsImpl.addAccessor(pv.getProject().getId(), "test", "test", "test", "test");
 		
 		assertEquals(r, rm.projectVersionToRevision(pv));
 	}
