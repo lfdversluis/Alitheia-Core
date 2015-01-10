@@ -37,13 +37,20 @@ public class RevisionManager {
     public Revision projectVersionToRevision(ProjectVersion pv) {
         TDSService tds = AlitheiaCore.getInstance().getTDSService();
         SCMAccessor scm = null;
-
+        
         if (tds.accessorExists(pv.getProject().getId())) {
-            scm = (SCMAccessor) tds.getAccessor(pv.getProject().getId());
+            try {
+				scm = (SCMAccessor) tds.getAccessor(pv.getProject().getId()).getSCMAccessor();
+			} catch (InvalidAccessorException e) {
+				logger.error("Invalid SCM accessor for project "
+	                    + pv.getProject().getName() + " "
+	                    + e.getMessage());
+	            return null;
+			}
         } else {
             return null;
         }
-
+        
         return scm.newRevision(pv.getRevisionId());
     }
     

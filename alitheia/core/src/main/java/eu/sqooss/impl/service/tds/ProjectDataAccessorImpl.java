@@ -118,7 +118,6 @@ public class ProjectDataAccessorImpl implements ProjectAccessor {
     	
     	try {
     		URI uri = null;
-    		
     		if ((uri = URIUtills.toURI(scm)) == null) {
             	logger.warn("Error converting to URI: " + scm);
             	return null;

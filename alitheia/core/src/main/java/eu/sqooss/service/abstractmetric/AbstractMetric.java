@@ -244,39 +244,43 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
         
         /*Discover the declared metrics*/
         MetricDeclarations md = this.getClass().getAnnotation(MetricDeclarations.class);
-
+      
 		if (md != null && md.metrics().length > 0) {
-			for (MetricDecl metric : md.metrics()) {
-				log.debug("Found metric: " + metric.mnemonic() + " with "
-						+ metric.activators().length + " activators");
-
-				if (metrics.containsKey(metric.mnemonic())) {
-				    log.error("Duplicate metric mnemonic " + metric.mnemonic());
-				    continue;
-				}
-				
-				Metric m = new Metric();
-				m.setDescription(metric.descr());
-				m.setMnemonic(metric.mnemonic());
-				m.setMetricType(new MetricType(MetricType.fromActivator(metric.activators()[0])));
-			
-				List<Class<? extends DAObject>> activs = new ArrayList<Class<? extends DAObject>>();				
-				for (Class<? extends DAObject> o : metric.activators()) {
-					activs.add(o);
-				}
-				
-				metricActType.put(m, activs);
-				
-				activators.addAll(Arrays.asList(metric.activators()));
-				
-				metrics.put(m.getMnemonic(), m);
-				if (metric.dependencies().length > 0)
-					dependencies.addAll(Arrays.asList(metric.dependencies()));
-			}
+			discoverDeclaredMetrics(md);
 		} else {
 			log.warn("Plug-in " + getName() + " declares no metrics");
 		}
      }
+    
+    private void discoverDeclaredMetrics(MetricDeclarations md) {
+    	for (MetricDecl metric : md.metrics()) {
+			log.debug("Found metric: " + metric.mnemonic() + " with "
+					+ metric.activators().length + " activators");
+
+			if (metrics.containsKey(metric.mnemonic())) {
+			    log.error("Duplicate metric mnemonic " + metric.mnemonic());
+			    continue;
+			}
+			
+			Metric m = new Metric();
+			m.setDescription(metric.descr());
+			m.setMnemonic(metric.mnemonic());
+			m.setMetricType(new MetricType(MetricType.fromActivator(metric.activators()[0])));
+		
+			List<Class<? extends DAObject>> activs = new ArrayList<Class<? extends DAObject>>();				
+			for (Class<? extends DAObject> o : metric.activators()) {
+				activs.add(o);
+			}
+			
+			metricActType.put(m, activs);
+			
+			activators.addAll(Arrays.asList(metric.activators()));
+			
+			metrics.put(m.getMnemonic(), m);
+			if (metric.dependencies().length > 0)
+				dependencies.addAll(Arrays.asList(metric.dependencies()));
+		}
+    }
 
     /**
      * Retrieve author information from the plug-in bundle
@@ -320,9 +324,7 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
     public final Date getDateInstalled() {
         return Plugin.getPluginByHashcode(getUniqueKey()).getInstalldate();
     }
-
-    Map<Long,Pair<Object,Long>> blockerObjects = new ConcurrentHashMap<Long,Pair<Object,Long>>();
-
+    
     /**
      * Call the appropriate getResult() method according to
      * the type of the entity that is measured.
@@ -349,21 +351,17 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
                         + Plugin.getPluginByHashcode(getUniqueKey()).getName());
             }
             List<Result> re = null;
+            
             try {
                 Method method = findGetResultMethod(o.getClass());
                 re = (List<Result>) method.invoke(this, o, m);
-            } catch (SecurityException e) {
-                logErr("getResult", o, e);
             } catch (NoSuchMethodException e) {
                 log.error("No method getResult(" + m.getMetricType().toActivator() + ") for type "
                         + this.getClass().getName());
-            } catch (IllegalArgumentException e) {
-                logErr("getResult", o, e);
-            } catch (IllegalAccessException e) {
-                logErr("getResult", o, e);
-            } catch (InvocationTargetException e) {
-                logErr("getResult", o, e);
+            } catch (Exception e) {
+            	logErr("getResult", o, e);
             }
+            
             if (re != null && !re.isEmpty()) {
                 result.addAll(re);
             }
@@ -506,27 +504,15 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
         try {
             Method m = findRunMethod("run", o.getClass());
             m.invoke(this, o);
-        } catch (SecurityException e) {
-            logErr("run", o, e);
-        } catch (NoSuchMethodException e) {
-            logErr("run", o, e);
-        } catch (IllegalArgumentException e) {
-            logErr("run", o, e);
-        } catch (IllegalAccessException e) {
-            logErr("run", o, e);
         } catch (InvocationTargetException e) {
             // Forward exception to metric job exception handler
             if (e.getCause() instanceof AlreadyProcessingException) {
                 throw (AlreadyProcessingException) e.getCause();
             } else {
-                if (e != null && e.getCause() != null) {
-                    logErr("run", o, e);
-                    if (e.getCause() != null)
-                        throw new Exception(e.getCause());
-                    else
-                        throw new Exception(e);
-                }
+                throw new Exception(e.getCause());  
             }
+        } catch(Exception e) {
+        	logErr("run", o, e);
         }
     }
     
@@ -608,8 +594,7 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
                     + "> is already installed, won't re-install.");
             return false;
         }
-
-
+        
         //2. Add the plug-in
         Plugin p = new Plugin();
         p.setName(getName());
@@ -770,9 +755,7 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
      * @param name The name of the configuration property to remove
      * @param name The type of the configuration property to remove
      */
-    protected final void removeConfigEntry(
-            String name,
-            PluginInfo.ConfigurationType type) {
+    protected final void removeConfigEntry(String name, PluginInfo.ConfigurationType type) {
         // Retrieve the plug-in's info object
         PluginInfo pi = pa.getPluginInfo(getUniqueKey());
         // Will happen if called during bundle's startup
@@ -827,12 +810,17 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
         /* Config option not found */
         return null;
     }
-    
-    private static Map<Class<? extends MetricMeasurement>, String> resultFieldNames = 
-        new HashMap<Class<? extends MetricMeasurement>, String>();
-    
-    static {
-        resultFieldNames.put(StoredProjectMeasurement.class, "storedProject");
+
+    /**
+     * Convenience method to get the measurement for a single metric.
+     */
+    protected List<Result> getResult(DAObject o, Class<? extends MetricMeasurement> clazz, 
+            Metric m, Result.ResultType type) {
+    	
+    	Map<Class<? extends MetricMeasurement>, String> resultFieldNames = 
+                new HashMap<Class<? extends MetricMeasurement>, String>();
+    	
+    	resultFieldNames.put(StoredProjectMeasurement.class, "storedProject");
         resultFieldNames.put(ProjectVersionMeasurement.class, "projectVersion");
         resultFieldNames.put(ProjectFileMeasurement.class, "projectFile");
         resultFieldNames.put(MailMessageMeasurement.class, "mail");
@@ -840,13 +828,7 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
         resultFieldNames.put(ExecutionUnitMeasurement.class, "executionUnit");
         resultFieldNames.put(EncapsulationUnitMeasurement.class, "encapsulationUnit");
         resultFieldNames.put(NameSpaceMeasurement.class, "namespace");
-    }
-
-    /**
-     * Convenience method to get the measurement for a single metric.
-     */
-    protected List<Result> getResult(DAObject o, Class<? extends MetricMeasurement> clazz, 
-            Metric m, Result.ResultType type) {
+    	
         DBService dbs = AlitheiaCore.getInstance().getDBService();
         Map<String, Object> props = new HashMap<String, Object>();
         
@@ -860,7 +842,6 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
         ArrayList<Result> result = new ArrayList<Result>();
         result.add(new Result(o, m, ((MetricMeasurement)resultat.get(0)).getResult(), type));
         return result;
-        
     }
 
     /**{@inheritDoc}*/
@@ -891,6 +872,32 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
     public Set<String> getDependencies() {
         return dependencies;
     }
+    
+    private String getQueryStringFromType(Class<? extends DAObject> at) throws MetricActivationException {
+    	
+    	HashMap<MetricType.Type, String> queryMap = new HashMap<MetricType.Type, String>();
+    	Type t = MetricType.fromActivator(at);
+    	if(t == Type.MAILING_LIST) {
+    		throw new MetricActivationException("Metric synchronisation with MAILING_LIST objects not implemented");
+    	} else if(t == Type.BUG) {
+    		throw new MetricActivationException("Metric synchronisation with BUG objects not implemented");
+    	}
+    	
+    	queryMap.put(Type.PROJECT_VERSION, QRY_SYNC_PV);
+    	queryMap.put(Type.SOURCE_FILE, QRY_SYNC_PF);
+    	queryMap.put(Type.SOURCE_DIRECTORY, QRY_SYNC_PD);
+    	queryMap.put(Type.MAILMESSAGE, QRY_SYNC_MM);
+    	queryMap.put(Type.MAILTHREAD, QRY_SYNC_MT);
+    	queryMap.put(Type.DEVELOPER, QRY_SYNC_DEV);
+    	queryMap.put(Type.NAMESPACE, QRY_SYNC_NS);
+    	queryMap.put(Type.ENCAPSUNIT, QRY_SYNC_ENCUNT);
+    	queryMap.put(Type.EXECUNIT, QRY_SYNC_EXECUNT);
+    	
+    	if(queryMap.containsKey(t)) {
+    		return queryMap.get(t);
+    	}
+    	throw new MetricActivationException("Metric synchronisation with GENERIC objects not implemented");
+    }
 
     @Override
     public Map<MetricType.Type, SortedSet<Long>> getObjectIdsToSync(StoredProject sp, Metric m) 
@@ -901,38 +908,9 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("project", sp);
         params.put("metric", m.getId());
-
-    	String q = null;
     	
     	for (Class<? extends DAObject> at : getMetricActivationTypes(m)) {
-    	
-	    	if (MetricType.fromActivator(at) == Type.PROJECT_VERSION) {
-	    		q = QRY_SYNC_PV;
-	    	} else if (MetricType.fromActivator(at) == Type.SOURCE_FILE) {
-	    		q = QRY_SYNC_PF;
-	    	} else if (MetricType.fromActivator(at) == Type.SOURCE_DIRECTORY) {
-	    		q = QRY_SYNC_PD;
-	     	} else if (MetricType.fromActivator(at) == Type.MAILING_LIST) {
-	    		throw new MetricActivationException("Metric synchronisation with MAILING_LIST objects not implemented");
-	    	} else if (MetricType.fromActivator(at) == Type.MAILMESSAGE) {
-	    		q = QRY_SYNC_MM;
-	    	} else if (MetricType.fromActivator(at) == Type.MAILTHREAD) {
-	    		q = QRY_SYNC_MT;
-	    	} else if (MetricType.fromActivator(at) == Type.BUG) {
-	    		throw new MetricActivationException("Metric synchronisation with BUG objects not implemented");
-	    	} else if (MetricType.fromActivator(at) == Type.DEVELOPER) {
-	    		q = QRY_SYNC_DEV;
-	    	} else if (MetricType.fromActivator(at) == Type.NAMESPACE) {
-                q = QRY_SYNC_NS;
-            } else if (MetricType.fromActivator(at) == Type.ENCAPSUNIT) {
-                q = QRY_SYNC_ENCUNT;
-            } else if (MetricType.fromActivator(at) == Type.EXECUNIT) {
-                q = QRY_SYNC_EXECUNT;
-            } else {
-	    		throw new MetricActivationException("Metric synchronisation with GENERIC objects not implemented");
-	    	}
-	    	
-	    	List<Long> objectIds = (List<Long>) db.doHQL(q, params);
+	    	List<Long> objectIds = (List<Long>) db.doHQL(getQueryStringFromType(at), params);
 	    	TreeSet<Long> ids = new TreeSet<Long>();
 	    	ids.addAll(objectIds);
 	    	IDs.put(MetricType.fromActivator(at), ids);

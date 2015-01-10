@@ -14,12 +14,14 @@ import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
 import eu.sqooss.impl.service.fds.RevisionManager;
+import eu.sqooss.impl.service.tds.DataAccessorFactory;
 import eu.sqooss.impl.service.tds.TDSServiceImpl;
 import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectFileState;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.StoredProject;
 import eu.sqooss.service.logging.Logger;
+import eu.sqooss.service.tds.DataAccessor;
 import eu.sqooss.service.tds.InvalidAccessorException;
 import eu.sqooss.service.tds.ProjectAccessor;
 import eu.sqooss.service.tds.Revision;
@@ -61,7 +63,7 @@ public class RevisionManagerTests {
 	
 	@Test
 	public void TestProjectVersionToRevisionSuccess() throws InvalidAccessorException{
-	
+		
 		RevisionManager rm = new RevisionManager(l);
 		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
 		StoredProject sp = Mockito.mock(StoredProject.class);
@@ -70,7 +72,10 @@ public class RevisionManagerTests {
 		Mockito.when(pv.getProject()).thenReturn(sp);
 		Mockito.when(sp.getId()).thenReturn(0l);
 		
-		//tdsImpl.addAccessor(pv.getProject().getId(), "test", "test", "test", "test");
+		// add data accessor for http scheme
+		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		
+		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 		
 		assertEquals(r, rm.projectVersionToRevision(pv));
 	}

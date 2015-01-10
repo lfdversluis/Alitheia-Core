@@ -120,9 +120,6 @@ public class FDSServiceImplTests {
 		RevisionManager rm = new RevisionManager(l);
 		
 		assertEquals(r, rm.projectFileRevision(pf, tds));
-		
-		
-		
 	}
 	
 	@Test
