@@ -31,7 +31,7 @@
  *
  */
 
-package eu.sqooss.service.abstractmetric;
+package eu.sqooss.impl.service.metricactivator;
 
 import java.util.Date;
 import java.util.List;

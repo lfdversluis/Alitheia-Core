@@ -37,11 +37,11 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 import eu.sqooss.service.abstractmetric.InvocationOrder;
+
 import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
-import eu.sqooss.service.abstractmetric.AlitheiaPlugin;
 import eu.sqooss.service.abstractmetric.SchedulerHints;
 import eu.sqooss.service.cluster.ClusterNodeActionException;
 import eu.sqooss.service.cluster.ClusterNodeService;

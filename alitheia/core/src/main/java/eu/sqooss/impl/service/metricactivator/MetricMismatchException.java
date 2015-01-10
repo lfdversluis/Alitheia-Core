@@ -31,7 +31,7 @@
  *
  */
 
-package eu.sqooss.service.abstractmetric;
+package eu.sqooss.impl.service.metricactivator;
 
 import eu.sqooss.service.db.DAObject;
 

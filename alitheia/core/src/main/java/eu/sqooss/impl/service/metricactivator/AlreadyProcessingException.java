@@ -31,7 +31,7 @@
  *
  */
 
-package eu.sqooss.service.abstractmetric;
+package eu.sqooss.impl.service.metricactivator;
 
 /**
  * Thrown when a DAO is locked for processing by another metric plugin.
@@ -47,7 +47,7 @@ public class AlreadyProcessingException extends Exception {
     
     private static final long serialVersionUID = 1L;
 
-    AlreadyProcessingException() {
+    public AlreadyProcessingException() {
         super();
     }
 }

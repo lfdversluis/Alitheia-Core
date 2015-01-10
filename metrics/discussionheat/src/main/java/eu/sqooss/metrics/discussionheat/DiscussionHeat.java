@@ -40,13 +40,13 @@ import java.util.Map;
 import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
+import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
+import eu.sqooss.impl.service.metricactivator.AlreadyProcessingException;
+import eu.sqooss.impl.service.metricactivator.MetricMismatchException;
+import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
-import eu.sqooss.service.abstractmetric.AlitheiaPlugin;
-import eu.sqooss.service.abstractmetric.AlreadyProcessingException;
 import eu.sqooss.service.abstractmetric.MetricDecl;
 import eu.sqooss.service.abstractmetric.MetricDeclarations;
-import eu.sqooss.service.abstractmetric.MetricMismatchException;
-import eu.sqooss.service.abstractmetric.Result;
 import eu.sqooss.service.db.DBService;
 import eu.sqooss.service.db.MailMessage;
 import eu.sqooss.service.db.MailingListThread;

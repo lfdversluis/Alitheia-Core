@@ -33,20 +33,20 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import eu.sqooss.core.AlitheiaCore;
+import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.abstractmetric.*;
 import eu.sqooss.service.db.*;
 import eu.sqooss.service.fds.CheckoutException;
 import eu.sqooss.service.fds.FDSService;
 import eu.sqooss.service.fds.OnDiskCheckout;
 import eu.sqooss.service.util.FileUtils;
-import org.osgi.framework.BundleContext;
 
+import org.osgi.framework.BundleContext;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;

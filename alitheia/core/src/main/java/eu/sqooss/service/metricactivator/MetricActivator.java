@@ -34,7 +34,7 @@
 package eu.sqooss.service.metricactivator;
 
 import eu.sqooss.core.AlitheiaCoreService;
-import eu.sqooss.service.abstractmetric.AlitheiaPlugin;
+import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
 import eu.sqooss.service.db.DAObject;
 import eu.sqooss.service.db.StoredProject;
 

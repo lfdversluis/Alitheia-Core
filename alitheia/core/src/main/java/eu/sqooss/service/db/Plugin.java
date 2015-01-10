@@ -201,7 +201,7 @@ public class Plugin extends DAObject {
      * @param hashcode
      *                The object's hashcode for the plugin class that implements
      *                the
-     *                {@link eu.sqooss.service.abstractmetric.AlitheiaPlugin}
+     *                {@link eu.sqooss.impl.service.metricactivator.AlitheiaPlugin}
      *                interface
      * @return A Plugin object if the hashcode was found in the DB; null
      *         otherwise
