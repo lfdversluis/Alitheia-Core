@@ -53,7 +53,6 @@ import java.util.regex.Pattern;
 import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
 import eu.sqooss.service.abstractmetric.MetricDecl;
 import eu.sqooss.service.abstractmetric.MetricDeclarations;
@@ -63,6 +62,7 @@ import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectFileMeasurement;
 import eu.sqooss.service.fds.FDSService;
 import eu.sqooss.service.fds.FileTypeMatcher;
+import eu.sqooss.service.metricactivator.Result;
 import eu.sqooss.service.util.FileUtils;
 
 /**

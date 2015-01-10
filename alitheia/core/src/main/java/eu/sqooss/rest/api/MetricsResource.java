@@ -41,13 +41,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
-import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.db.DAObject;
 import eu.sqooss.service.db.DBService;
 import eu.sqooss.service.db.Metric;
 import eu.sqooss.service.db.MetricType;
 import eu.sqooss.service.db.MetricType.Type;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
+import eu.sqooss.service.metricactivator.Result;
 
 /**
  *  @author Georgios Gousios <gousiosg@gmail.com>

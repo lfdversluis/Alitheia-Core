@@ -31,7 +31,7 @@
  *
  */
 
-package eu.sqooss.impl.service.metricactivator;
+package eu.sqooss.service.metricactivator;
 
 /**
  * Thrown when a DAO is locked for processing by another metric plugin.

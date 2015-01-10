@@ -38,12 +38,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.abstractmetric.*;
 import eu.sqooss.service.db.*;
 import eu.sqooss.service.fds.CheckoutException;
 import eu.sqooss.service.fds.FDSService;
 import eu.sqooss.service.fds.OnDiskCheckout;
+import eu.sqooss.service.metricactivator.Result;
 import eu.sqooss.service.util.FileUtils;
 
 import org.osgi.framework.BundleContext;

@@ -40,10 +40,6 @@ import java.util.Map;
 import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
-import eu.sqooss.impl.service.metricactivator.AlreadyProcessingException;
-import eu.sqooss.impl.service.metricactivator.MetricMismatchException;
-import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
 import eu.sqooss.service.abstractmetric.MetricDecl;
 import eu.sqooss.service.abstractmetric.MetricDeclarations;
@@ -56,6 +52,10 @@ import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.ProjectVersionMeasurement;
 import eu.sqooss.service.db.StoredProject;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
+import eu.sqooss.service.metricactivator.AlreadyProcessingException;
+import eu.sqooss.service.metricactivator.MetricMismatchException;
+import eu.sqooss.service.metricactivator.Result;
 
 /**
  * Discussion heat plug-in. 

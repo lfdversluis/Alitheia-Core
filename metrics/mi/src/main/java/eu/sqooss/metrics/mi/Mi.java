@@ -37,9 +37,6 @@ import java.util.Map;
 
 import org.osgi.framework.BundleContext;
 
-import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
-import eu.sqooss.impl.service.metricactivator.AlreadyProcessingException;
-import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
 import eu.sqooss.service.abstractmetric.MetricDecl;
 import eu.sqooss.service.abstractmetric.MetricDeclarations;
@@ -53,6 +50,9 @@ import eu.sqooss.service.db.ProjectFileState;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.ProjectVersionMeasurement;
 import eu.sqooss.service.fds.FileTypeMatcher;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
+import eu.sqooss.service.metricactivator.AlreadyProcessingException;
+import eu.sqooss.service.metricactivator.Result;
 
 /**
  * Implements module and project wide maintainability index calculation

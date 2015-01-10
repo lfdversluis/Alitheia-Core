@@ -56,10 +56,6 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
-import eu.sqooss.impl.service.metricactivator.AlreadyProcessingException;
-import eu.sqooss.impl.service.metricactivator.MetricMismatchException;
-import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.db.DAObject;
 import eu.sqooss.service.db.DBService;
 import eu.sqooss.service.db.EncapsulationUnitMeasurement;
@@ -78,8 +74,12 @@ import eu.sqooss.service.db.StoredProject;
 import eu.sqooss.service.db.StoredProjectMeasurement;
 import eu.sqooss.service.db.MetricType.Type;
 import eu.sqooss.service.logging.Logger;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
+import eu.sqooss.service.metricactivator.AlreadyProcessingException;
 import eu.sqooss.service.metricactivator.MetricActivationException;
 import eu.sqooss.service.metricactivator.MetricActivator;
+import eu.sqooss.service.metricactivator.MetricMismatchException;
+import eu.sqooss.service.metricactivator.Result;
 import eu.sqooss.service.pa.PluginAdmin;
 import eu.sqooss.service.pa.PluginInfo;
 import eu.sqooss.service.scheduler.Job;
@@ -89,7 +89,7 @@ import eu.sqooss.service.util.Pair;
  * A base class for all metrics. Implements basic functionality such as
  * logging setup and plug-in information retrieval from the OSGi bundle
  * manifest file. Metrics can choose to directly implement
- * the {@link eu.sqooss.impl.service.metricactivator.alitheiaplugin.abstractmetric.AlitheiaPlugin} interface instead of 
+ * the {@link eu.sqooss.service.metricactivator.alitheiaplugin.abstractmetric.AlitheiaPlugin} interface instead of 
  * extending this class.
  */
 public abstract class AbstractMetric implements AlitheiaPlugin {

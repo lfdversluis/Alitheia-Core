@@ -37,8 +37,8 @@ import java.util.Collection;
 import java.util.List;
 
 import eu.sqooss.core.AlitheiaCoreService;
-import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
 import eu.sqooss.service.db.DAObject;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
 
 /**
  * <code>PluginAdmin</code> defines an interface for classes, that provide

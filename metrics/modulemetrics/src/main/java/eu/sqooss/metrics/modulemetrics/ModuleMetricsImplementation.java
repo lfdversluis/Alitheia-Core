@@ -42,9 +42,6 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
-import eu.sqooss.impl.service.metricactivator.AlreadyProcessingException;
-import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
 import eu.sqooss.service.abstractmetric.MetricDecl;
 import eu.sqooss.service.abstractmetric.MetricDeclarations;
@@ -57,6 +54,9 @@ import eu.sqooss.service.db.ProjectFileState;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.ProjectVersionMeasurement;
 import eu.sqooss.service.fds.FileTypeMatcher;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
+import eu.sqooss.service.metricactivator.AlreadyProcessingException;
+import eu.sqooss.service.metricactivator.Result;
 
 @MetricDeclarations(metrics = {
     @MetricDecl(mnemonic="MNOF", activators={ProjectDirectory.class}, descr="Number of Source Code Files in Module"),

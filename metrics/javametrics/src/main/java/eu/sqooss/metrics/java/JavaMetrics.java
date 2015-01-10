@@ -16,7 +16,6 @@ import org.antlr.runtime.tree.Tree;
 import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.metricactivator.Result;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
 import eu.sqooss.service.abstractmetric.MetricDecl;
 import eu.sqooss.service.abstractmetric.MetricDeclarations;
@@ -29,6 +28,7 @@ import eu.sqooss.service.db.ExecutionUnitMeasurement;
 import eu.sqooss.service.db.Metric;
 import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectVersion;
+import eu.sqooss.service.metricactivator.Result;
 import eu.sqooss.service.scheduler.Job;
 import eu.sqooss.service.scheduler.ResumePoint;
 import eu.sqooss.service.scheduler.Scheduler;

@@ -44,7 +44,6 @@ import org.apache.velocity.VelocityContext;
 import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.metricactivator.AlitheiaPlugin;
 import eu.sqooss.service.admin.AdminAction;
 import eu.sqooss.service.admin.AdminService;
 import eu.sqooss.service.admin.actions.AddProject;
@@ -54,6 +53,7 @@ import eu.sqooss.service.db.ClusterNode;
 import eu.sqooss.service.db.MailMessage;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.StoredProject;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
 import eu.sqooss.service.pa.PluginInfo;
 import eu.sqooss.service.scheduler.SchedulerException;
 import eu.sqooss.service.updater.Updater;
