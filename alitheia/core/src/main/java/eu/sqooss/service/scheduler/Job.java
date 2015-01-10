@@ -218,18 +218,7 @@ public abstract class Job implements Comparable<Job> {
         DBService dbs = AlitheiaCore.getInstance().getDBService();
         long timer = System.currentTimeMillis();
         try {
-            setState(State.Running);
-            restart();
-            
-            /*Idiot/bad programmer proofing*/
-            assert (!dbs.isDBSessionActive());            
-            if (dbs.isDBSessionActive()) {
-                dbs.rollbackDBSession();
-                setState(State.Error); //No uncommitted sessions are tolerated
-            } else {
-                if (state() != State.Yielded)
-                    setState(State.Finished);
-            }   
+        	resume(true, dbs);
         } catch(Exception e) {
             
             if (dbs.isDBSessionActive()) {
@@ -243,6 +232,28 @@ public abstract class Job implements Comparable<Job> {
             throw e;
         }
         return System.currentTimeMillis() - timer;
+    }
+    
+    public void resume(boolean restart, DBService dbs) throws Exception{
+    	setState(State.Running);
+    	if(restart){
+    		restart();
+    	} else {
+    		resumePoint.resume();
+    	}
+        
+        /*Idiot/bad programmer proofing*/
+        assert (!dbs.isDBSessionActive());            
+        if (dbs.isDBSessionActive()) {
+            dbs.rollbackDBSession();
+            setState(State.Error); //No uncommitted sessions are tolerated
+        } else {
+            if (restart && state() != State.Yielded){
+                setState(State.Finished);
+            } else {
+            	setState(State.Finished);
+            }
+        }   
     }
 
     /**
@@ -502,16 +513,7 @@ public abstract class Job implements Comparable<Job> {
             throw new SchedulerException("Resume point is null");
         
         try {
-            setState(State.Running);
-            resumePoint.resume();
-                       
-            assert (!dbs.isDBSessionActive());            
-            if (dbs.isDBSessionActive()) {
-                dbs.rollbackDBSession();
-                setState(State.Error); //No uncommitted sessions are tolerated
-            } else {
-                setState(State.Finished);
-            }   
+        	resume(false, dbs);
         } catch(Exception e) {
             
             if (dbs.isDBSessionActive()) {

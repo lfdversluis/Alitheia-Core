@@ -355,24 +355,9 @@ public class ProjectsView extends AbstractView {
             b.append(sp(in++)
                     + "<td colspan=\"2\" class=\"borderless\">\n");
             // Apply button
-            b.append(sp(in) + "<input type=\"button\""
-                    + " class=\"install\""
-                    + " style=\"width: 100px;\""
-                    + " value=\"" + getLbl("project_add") + "\""
-                    + " onclick=\"javascript:"
-                    + "document.getElementById('"
-                    + REQ_PAR_ACTION + "').value='"
-                    + ACT_CON_ADD_PROJECT + "';"
-                    + SUBMIT + "\">\n");
+            addConfirmButton(b, in, "project_add", ACT_CON_ADD_PROJECT);
             // Cancel button
-            b.append(sp(in) + "<input type=\"button\""
-                    + " class=\"install\""
-                    + " style=\"width: 100px;\""
-                    + " value=\"" + getLbl("cancel") + "\""
-                    + " onclick=\"javascript:"
-                    + SUBMIT + "\">\n");
-            b.append(sp(--in) + "</td>\n");
-            b.append(sp(--in) + "</tr>\n");
+            addCancelButton(b, in, "cancel");
             b.append(sp(--in) + "</table>\n");
         }
         // ===================================================================
@@ -399,24 +384,9 @@ public class ProjectsView extends AbstractView {
             b.append(sp(in++)
                     + "<td class=\"borderless\">\n");
             // Confirm button
-            b.append(sp(in) + "<input type=\"button\""
-                    + " class=\"install\""
-                    + " style=\"width: 100px;\""
-                    + " value=\"" + getLbl("l0006") + "\""
-                    + " onclick=\"javascript:"
-                    + "document.getElementById('"
-                    + REQ_PAR_ACTION + "').value='"
-                    + ACT_CON_REM_PROJECT + "';"
-                    + SUBMIT + "\">\n");
+            addConfirmButton(b, in, "l0006", ACT_CON_REM_PROJECT);
             // Cancel button
-            b.append(sp(in) + "<input type=\"button\""
-                    + " class=\"install\""
-                    + " style=\"width: 100px;\""
-                    + " value=\"" + getLbl("l0004") + "\""
-                    + " onclick=\"javascript:"
-                    + SUBMIT + "\">\n");
-            b.append(sp(--in) + "</td>\n");
-            b.append(sp(--in) + "</tr>\n");
+            addCancelButton(b, in, "l0004");
             b.append(sp(--in) + "</table>");
             b.append(sp(in) + "</fieldset>\n");
         }
@@ -539,6 +509,29 @@ public class ProjectsView extends AbstractView {
         // Close the form
         // ===============================================================
         b.append(sp(--in) + "</form>\n");
+    }
+    
+    private static void addConfirmButton(StringBuilder b, int in, String label, String value){
+    	b.append(sp(in) + "<input type=\"button\""
+                + " class=\"install\""
+                + " style=\"width: 100px;\""
+                + " value=\"" + getLbl(label) + "\""
+                + " onclick=\"javascript:"
+                + "document.getElementById('"
+                + REQ_PAR_ACTION + "').value='"
+                + value + "';"
+                + SUBMIT + "\">\n");
+    }
+    
+    private static void addCancelButton(StringBuilder b, int in, String label){
+    	b.append(sp(in) + "<input type=\"button\""
+                + " class=\"install\""
+                + " style=\"width: 100px;\""
+                + " value=\"" + getLbl("cancel") + "\""
+                + " onclick=\"javascript:"
+                + SUBMIT + "\">\n");
+        b.append(sp(--in) + "</td>\n");
+        b.append(sp(--in) + "</tr>\n");
     }
 
 

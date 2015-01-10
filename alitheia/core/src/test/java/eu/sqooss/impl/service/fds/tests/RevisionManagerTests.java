@@ -61,9 +61,7 @@ public class RevisionManagerTests {
 	
 	@Test
 	public void TestProjectVersionToRevisionSuccess() throws InvalidAccessorException{
-		AlitheiaCore core = act.getAlitheiaCore();
-		TDSService tdsImpl = core.getTDSService();
-		
+	
 		RevisionManager rm = new RevisionManager(l);
 		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
 		StoredProject sp = Mockito.mock(StoredProject.class);
@@ -72,7 +70,7 @@ public class RevisionManagerTests {
 		Mockito.when(pv.getProject()).thenReturn(sp);
 		Mockito.when(sp.getId()).thenReturn(0l);
 		
-		tdsImpl.addAccessor(pv.getProject().getId(), "test", "test", "test", "test");
+		//tdsImpl.addAccessor(pv.getProject().getId(), "test", "test", "test", "test");
 		
 		assertEquals(r, rm.projectVersionToRevision(pv));
 	}
