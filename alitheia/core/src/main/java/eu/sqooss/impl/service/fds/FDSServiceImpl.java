@@ -103,7 +103,6 @@ public class FDSServiceImpl implements FDSService, Runnable {
      * 
      */
     private class CleanupThread extends Thread {
-
         public CleanupThread(String name) {
             super(name);
         }
@@ -134,13 +133,11 @@ public class FDSServiceImpl implements FDSService, Runnable {
         File checkoutRoot = new File(projectRoot, pv.getRevisionId());
 
         if (checkoutRoot.exists()) {
-            logger.warn("Checkout root <" + checkoutRoot + "> exists. " +
-                    "Cleaning up");
+            logger.warn("Checkout root <" + checkoutRoot + "> exists. " + "Cleaning up");
             FileUtils.deleteRecursive(checkoutRoot);
         }
         if (!checkoutRoot.mkdirs()) {
-            logger.warn("Could not create checkout root <" + checkoutRoot
-                    + ">");
+            logger.warn("Could not create checkout root <" + checkoutRoot + ">");
             return null;
         }
 
@@ -163,12 +160,10 @@ public class FDSServiceImpl implements FDSService, Runnable {
      *         the given revision.
      */
     private File projectFileLocal(ProjectFile pf, Revision r) {
-        Revision pr = null;
+        Revision pr = r;
         if (r == null) {
         	RevisionManager revisionManager = new RevisionManager(logger);
             pr = revisionManager.projectFileRevision(pf, tds);
-        } else {
-            pr = r;
         }
 
         // Path generation for a "single file checkout"
@@ -209,37 +204,30 @@ public class FDSServiceImpl implements FDSService, Runnable {
      * Check whether a checkout can be done
      */
     private boolean canCheckout(ProjectVersion pv) throws CheckoutException {
-
         long projectId = pv.getProject().getId();
 
         if (!tds.projectExists(projectId)) {
-            throw new CheckoutException("No such project " + pv.getProject()
-                    + " to check out.");
+            throw new CheckoutException("No such project " + pv.getProject() + " to check out.");
         }
         if (!tds.accessorExists(projectId)) {
-            throw new CheckoutException("No accessor available for project: "
-                    + pv.getProject().getName());
+            throw new CheckoutException("No accessor available for project: "  + pv.getProject().getName());
         }
 
         ProjectAccessor a = tds.getAccessor(projectId);
 
         if (a == null) {
             logger.warn("Accessor not available even though it exists.");
-            throw new CheckoutException("Accessor " + "for project "
-                    + pv.getProject().getName()
-                    + " not available even though it exists.");
+            throw new CheckoutException("Accessor " + "for project " + pv.getProject().getName() + " not available even though it exists.");
         }
 
         try {
             SCMAccessor svn = a.getSCMAccessor();
             if (svn == null) {
                 logger.warn("No SCM available for " + pv.getProject().getName());
-                throw new CheckoutException("No SCM accessor available for project "
-                                + pv.getProject().getName());
+                throw new CheckoutException("No SCM accessor available for project " + pv.getProject().getName());
             }
         } catch (InvalidAccessorException e) {
-            throw new CheckoutException("Invalid SCM accessor for project "
-                    + pv.getProject().getName() + " " + e.getMessage());
+            throw new CheckoutException("Invalid SCM accessor for project " + pv.getProject().getName() + " " + e.getMessage());
         }
 
         return true;
@@ -250,15 +238,15 @@ public class FDSServiceImpl implements FDSService, Runnable {
      * Atomic get from cache and increment handle count.
      */
     private synchronized OnDiskCheckout getCheckoutFromCache(ProjectVersion pv) {
-
         if (pv == null || pv.getId() == 0) {
             return null;
         }
 
         OnDiskCheckout co = checkoutCache.get(cacheKey(pv));
 
-        if (co == null)
+        if (co == null) {
             return null;
+        }
 
         checkoutHandles.put(co, checkoutHandles.get(co) + 1);
 
@@ -278,8 +266,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
      * key for indexing cache checkouts.
      */
     private String cacheKey(ProjectVersion pv) {
-        return pv.getProject().getName() + "|" + pv.getId() + "|"
-                + pv.getRevisionId();
+        return pv.getProject().getName() + "|" + pv.getId() + "|" + pv.getRevisionId();
     }
 
     // ===[ INTERFACE METHODS ]===============================================
@@ -318,22 +305,19 @@ public class FDSServiceImpl implements FDSService, Runnable {
             }
             // returning null here is fine
         } catch (InvalidRepositoryException e) {
-            logger.error("The repository for " + pf.toString()
-                    + " is invalid: " + e.getMessage());
+            logger.error("The repository for " + pf.toString() + " is invalid: " + e.getMessage());
         } catch (InvalidProjectRevisionException e) {
             logger.error("The repository for "
-                    + pf.getProjectVersion().getProject() + " has no revision "
+            		+ pf.getProjectVersion().getProject() + " has no revision "
                     + projectRevision + ":" + e.getMessage());
         } catch (FileNotFoundException e) {
-            logger.error("File " + pf.toString() + " not found in the given "
-                    + "repository: " + e.getMessage());
+            logger.error("File " + pf.toString() + " not found in the given " + "repository: " + e.getMessage());
         }
         return null;
     }
 
     /** {@inheritDoc} */
     public InputStream getFileContents(ProjectFile pf) {
-
     	RevisionManager revisionManager = new RevisionManager(logger);
         Revision projectRevision = revisionManager.projectFileRevision(pf, tds);
         if (projectRevision == null) {
@@ -345,15 +329,13 @@ public class FDSServiceImpl implements FDSService, Runnable {
         try {
             scm.getFile(pf.getFileName(), projectRevision, buff);
         } catch (InvalidProjectRevisionException e) {
-            logger.error("The repository for " + pf.toString()
-                    + " is invalid: " + e.getMessage());
+            logger.error("The repository for " + pf.toString()  + " is invalid: " + e.getMessage());
         } catch (InvalidRepositoryException e) {
             logger.error("The repository for "
                     + pf.getProjectVersion().getProject() + " has no revision "
                     + projectRevision + ":" + e.getMessage());
         } catch (FileNotFoundException e) {
-            logger.error("File " + pf.toString() + " not found in the given "
-                    + "repository: " + e.getMessage());
+            logger.error("File " + pf.toString() + " not found in the given repository: " + e.getMessage());
         }
 
         ByteArrayInputStream contents = new ByteArrayInputStream(buff.toByteArray());
@@ -367,7 +349,6 @@ public class FDSServiceImpl implements FDSService, Runnable {
 
     /** {@inheritDoc} */
     public InMemoryCheckout getInMemoryCheckout(ProjectVersion pv, Pattern pattern) throws CheckoutException {
-
         if (!canCheckout(pv)) {
             return null;
         }
@@ -381,8 +362,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
                     + pv.getProject().getName() + ": " + e.getMessage());
         }
         svn.newRevision(pv.getRevisionId());
-        logger
-                .info("Finding available checkout for "
+        logger.info("Finding available checkout for "
                         + pv.getProject().getName() + " revision "
                         + pv.getRevisionId());
 
@@ -391,7 +371,6 @@ public class FDSServiceImpl implements FDSService, Runnable {
 
     /** {@inheritDoc} */
     public OnDiskCheckout getCheckout(ProjectVersion pv, String path) throws CheckoutException {
-
         if (!canCheckout(pv)) {
             return null;
         }
@@ -450,14 +429,12 @@ public class FDSServiceImpl implements FDSService, Runnable {
 
         } catch (InvalidProjectRevisionException e) {
             throw new CheckoutException("Project version " + pv
-                    + " does not map to an SCM revision. Error was:"
-                    + e.getMessage());
+                    + " does not map to an SCM revision. Error was:" + e.getMessage());
         } catch (InvalidRepositoryException e) {
             throw new CheckoutException("Error accessing repository "
                     + scm.toString() + ". Error was:" + e.getMessage());
         } catch (FileNotFoundException e) {
-            throw new CheckoutException("Error accessing checkout root. "
-                    + e.getMessage());
+            throw new CheckoutException("Error accessing checkout root. " + e.getMessage());
         } finally {
             cimpl.unlock();
         }
@@ -481,9 +458,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
         return new TimelineImpl(c);
     }
 
-    public void run() {
-
-    }
+    public void run() {}
 
     @Override
     public void setInitParams(BundleContext bc, Logger l) {
@@ -522,5 +497,3 @@ public class FDSServiceImpl implements FDSService, Runnable {
         return true;
     }
 }
-
-// vi: ai nosi sw=4 ts=4 expandtab

@@ -41,6 +41,7 @@ public class RevisionManager {
         if (tds.accessorExists(pv.getProject().getId())) {
             scm = (SCMAccessor) tds.getAccessor(pv.getProject().getId());
         } else {
+        	System.out.println("h4x0r");
             return null;
         }
 
