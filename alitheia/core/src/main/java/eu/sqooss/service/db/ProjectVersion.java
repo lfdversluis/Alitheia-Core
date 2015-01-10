@@ -437,24 +437,33 @@ public class ProjectVersion extends DAObject {
         return true;
         
     }
-       
+    
     /**
-     * Allow moving backward in version history by finding the most-recent
-     * version of this project before the current one, or null if there
-     * is no such version.
      * 
-     * @return Previous version, or null
+     * @param nextVersion True if you need the next version, false if previous.
+     * 
+     * @return previous or next version, or null
      */
-    public ProjectVersion getPreviousVersion() {
-        DBService dbs = AlitheiaCore.getInstance().getDBService();
+    public ProjectVersion getVersion(boolean nextVersion){
+    	DBService dbs = AlitheiaCore.getInstance().getDBService();
         
-        String paramOrder = "versionOrder"; 
+    	String paramOrder;
+    	if(nextVersion){
+    		paramOrder = "versionsequence";
+    	} else{
+    		paramOrder = "versionOrder"; 
+    	}
         String paramProject = "projectId";
         
         String query = "select pv from ProjectVersion pv where " +
-			" pv.project.id =:" + paramProject +
-			" and pv.sequence < :" + paramOrder + 
+			" pv.project.id =:" + paramProject;
+        if(nextVersion){
+        	query += " and pv.sequence > :" + paramOrder + 
+            " order by pv.sequence asc";
+        } else {
+			query += " and pv.sequence < :" + paramOrder + 
 			" order by pv.sequence desc";
+        }
         
         Map<String,Object> parameters = new HashMap<String,Object>();
         parameters.put(paramOrder, this.getSequence());
@@ -468,6 +477,17 @@ public class ProjectVersion extends DAObject {
             return (ProjectVersion) projectVersions.get(0);
         }
     }
+       
+    /**
+     * Allow moving backward in version history by finding the most-recent
+     * version of this project before the current one, or null if there
+     * is no such version.
+     * 
+     * @return Previous version, or null
+     */
+    public ProjectVersion getPreviousVersion() {
+       return getVersion(false);
+    }
     
     /**
      * Allow moving forward in version history by finding the earliest
@@ -477,27 +497,7 @@ public class ProjectVersion extends DAObject {
      * @return Next version, or null
      */
     public ProjectVersion getNextVersion() {
-        DBService dbs = AlitheiaCore.getInstance().getDBService();
-        
-        String paramTS = "versionsequence"; 
-        String paramProject = "projectId";
-        
-        String query = "select pv from ProjectVersion pv where " +
-            " pv.project.id =:" + paramProject +
-            " and pv.sequence > :" + paramTS + 
-            " order by pv.sequence asc";
-        
-        Map<String,Object> parameters = new HashMap<String,Object>();
-        parameters.put(paramTS, this.getSequence());
-        parameters.put(paramProject, this.getProject().getId());
-
-        List<?> projectVersions = dbs.doHQL(query, parameters, 1);
-        
-        if(projectVersions == null || projectVersions.size() == 0) {
-            return null;
-        } else {
-            return (ProjectVersion) projectVersions.get(0);
-        }
+        return getVersion(true);
     }
 
     /**
