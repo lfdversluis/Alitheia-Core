@@ -41,12 +41,8 @@ import org.osgi.framework.BundleContext;
 
 import eu.sqooss.core.AlitheiaCore;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
-import eu.sqooss.service.abstractmetric.AlitheiaPlugin;
-import eu.sqooss.service.abstractmetric.AlreadyProcessingException;
 import eu.sqooss.service.abstractmetric.MetricDecl;
 import eu.sqooss.service.abstractmetric.MetricDeclarations;
-import eu.sqooss.service.abstractmetric.MetricMismatchException;
-import eu.sqooss.service.abstractmetric.Result;
 import eu.sqooss.service.db.DBService;
 import eu.sqooss.service.db.MailMessage;
 import eu.sqooss.service.db.MailingListThread;
@@ -56,6 +52,10 @@ import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.ProjectVersionMeasurement;
 import eu.sqooss.service.db.StoredProject;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
+import eu.sqooss.service.metricactivator.AlreadyProcessingException;
+import eu.sqooss.service.metricactivator.MetricMismatchException;
+import eu.sqooss.service.metricactivator.Result;
 
 /**
  * Discussion heat plug-in. 

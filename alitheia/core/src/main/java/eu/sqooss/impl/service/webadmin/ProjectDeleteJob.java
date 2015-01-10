@@ -37,12 +37,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.service.abstractmetric.AlitheiaPlugin;
 import eu.sqooss.service.db.DBService;
 import eu.sqooss.service.db.Plugin;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.StoredProject;
 import eu.sqooss.service.db.StoredProjectConfig;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
 import eu.sqooss.service.scheduler.Job;
 
 public class ProjectDeleteJob extends Job {

@@ -74,8 +74,12 @@ import eu.sqooss.service.db.StoredProject;
 import eu.sqooss.service.db.StoredProjectMeasurement;
 import eu.sqooss.service.db.MetricType.Type;
 import eu.sqooss.service.logging.Logger;
+import eu.sqooss.service.metricactivator.AlitheiaPlugin;
+import eu.sqooss.service.metricactivator.AlreadyProcessingException;
 import eu.sqooss.service.metricactivator.MetricActivationException;
 import eu.sqooss.service.metricactivator.MetricActivator;
+import eu.sqooss.service.metricactivator.MetricMismatchException;
+import eu.sqooss.service.metricactivator.Result;
 import eu.sqooss.service.pa.PluginAdmin;
 import eu.sqooss.service.pa.PluginInfo;
 import eu.sqooss.service.scheduler.Job;
@@ -85,7 +89,7 @@ import eu.sqooss.service.util.Pair;
  * A base class for all metrics. Implements basic functionality such as
  * logging setup and plug-in information retrieval from the OSGi bundle
  * manifest file. Metrics can choose to directly implement
- * the {@link eu.sqooss.abstractmetric.AlitheiaPlugin} interface instead of 
+ * the {@link eu.sqooss.service.metricactivator.alitheiaplugin.abstractmetric.AlitheiaPlugin} interface instead of 
  * extending this class.
  */
 public abstract class AbstractMetric implements AlitheiaPlugin {
@@ -336,7 +340,6 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
      */
      @SuppressWarnings("unchecked")
      public List<Result> getResultIfAlreadyCalculated(DAObject o, List<Metric> l) throws MetricMismatchException {
-        boolean found = false;        
         List<Result> result = new ArrayList<Result>();
         
         for (Metric m : l) {
