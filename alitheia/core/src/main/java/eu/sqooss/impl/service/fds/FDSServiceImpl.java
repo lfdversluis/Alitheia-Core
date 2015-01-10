@@ -353,15 +353,8 @@ public class FDSServiceImpl implements FDSService, Runnable {
             return null;
         }
 
-        long projectId = pv.getProject().getId();
-        SCMAccessor svn = null;
-        try {
-            svn = tds.getAccessor(projectId).getSCMAccessor();
-        } catch (InvalidAccessorException e) {
-            throw new CheckoutException("Invalid SCM accessor for project "
-                    + pv.getProject().getName() + ": " + e.getMessage());
-        }
-        svn.newRevision(pv.getRevisionId());
+        createNewRevision(pv);
+        
         logger.info("Finding available checkout for "
                         + pv.getProject().getName() + " revision "
                         + pv.getRevisionId());
@@ -374,17 +367,8 @@ public class FDSServiceImpl implements FDSService, Runnable {
         if (!canCheckout(pv)) {
             return null;
         }
-
-        long projectId = pv.getProject().getId();
-        SCMAccessor svn = null;
-        try {
-            svn = tds.getAccessor(projectId).getSCMAccessor();
-        } catch (InvalidAccessorException e) {
-            throw new CheckoutException("Invalid SCM accessor for project "
-                    + pv.getProject().getName() + ": " + e.getMessage());
-        }
-
-        svn.newRevision(pv.getRevisionId());
+        
+        SCMAccessor svn = createNewRevision(pv);
 
         logger.info("Finding available checkout for " + pv);
         OnDiskCheckout co = getCheckoutFromCache(pv);
@@ -395,6 +379,23 @@ public class FDSServiceImpl implements FDSService, Runnable {
         }
         
         return createCheckout(svn, pv, path);
+    }
+    
+    public SCMAccessor createNewRevision(ProjectVersion pv) throws CheckoutException{
+    	long projectId = pv.getProject().getId();
+        SCMAccessor svn = null;
+        try {
+            svn = tds.getAccessor(projectId).getSCMAccessor();
+        } catch (InvalidAccessorException e) {
+            throw new CheckoutException("Invalid SCM accessor for project "
+                    + pv.getProject().getName() + ": " + e.getMessage());
+        }
+        svn.newRevision(pv.getRevisionId());
+        logger.info("Finding available checkout for "
+                        + pv.getProject().getName() + " revision "
+                        + pv.getRevisionId());
+        
+        return svn;
     }
 
     /** {@inheritDoc} */
