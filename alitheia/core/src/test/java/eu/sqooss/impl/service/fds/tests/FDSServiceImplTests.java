@@ -1,27 +1,24 @@
 package eu.sqooss.impl.service.fds.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
-import java.util.Hashtable;
 
+import org.apache.velocity.texen.util.FileUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleReference;
-import org.osgi.framework.FrameworkUtil;
-import org.osgi.framework.ServiceReference;
-import org.osgi.service.http.HttpService;
-
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
 
-import eu.sqooss.core.AlitheiaCore;
 import eu.sqooss.impl.service.fds.FDSServiceImpl;
 import eu.sqooss.impl.service.fds.RevisionManager;
 import eu.sqooss.service.db.ProjectFile;
@@ -29,6 +26,7 @@ import eu.sqooss.service.db.ProjectFileState;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.StoredProject;
 import eu.sqooss.service.fds.CheckoutException;
+import eu.sqooss.service.fds.OnDiskCheckout;
 import eu.sqooss.service.fds.Timeline;
 import eu.sqooss.service.logging.Logger;
 import eu.sqooss.service.tds.InvalidAccessorException;
@@ -74,6 +72,8 @@ public class FDSServiceImplTests {
 	@Test
 	public void TeststartUpSuccessful(){ 
 		assertTrue(impl.startUp());
+		// and shut down again
+		impl.shutDown();
 	}
 	
 	@Test
@@ -128,6 +128,25 @@ public class FDSServiceImplTests {
 		
 		boolean result = impl.updateCheckout(null, pv);
 		assertFalse(result);
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void TestReleaseCheckoutFailure(){
+		OnDiskCheckout odc = Mockito.mock(OnDiskCheckout.class);
+		impl.releaseCheckout(odc);
+	}
+	
+	@Test
+	public void TestReleaseCheckoutSuccess() throws FileNotFoundException, CheckoutException{
+		OnDiskCheckout odc = Mockito.mock(OnDiskCheckout.class);
+		String path = FileUtil.mkdir("test");
+		File dir = new File(path);
+		Mockito.when(odc.getRoot()).thenReturn(dir);
+		
+		assertEquals(dir, odc.getRoot());
+		
+		impl.releaseCheckout(odc);
+		assertFalse(dir.exists());
 	}
 
 }

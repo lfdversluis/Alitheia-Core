@@ -1,6 +1,7 @@
 package eu.sqooss.impl.service.fds.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.net.MalformedURLException;
@@ -51,12 +52,10 @@ public class RevisionManagerTests {
 	public void TestProjectVersionToRevisionFailure(){
 		RevisionManager rm = new RevisionManager(l);
 		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
-		TDSService tds = Mockito.mock(TDSService.class);
 		StoredProject sp = Mockito.mock(StoredProject.class);
 
 		Mockito.when(pv.getProject()).thenReturn(sp);
 		Mockito.when(sp.getId()).thenReturn(0l);
-		Mockito.when(tds.accessorExists(pv.getProject().getId())).thenReturn(false);
 		
 		assertNull(rm.projectVersionToRevision(pv));
 	}
@@ -67,7 +66,6 @@ public class RevisionManagerTests {
 		RevisionManager rm = new RevisionManager(l);
 		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
 		StoredProject sp = Mockito.mock(StoredProject.class);
-		Revision r = Mockito.mock(Revision.class);
 
 		Mockito.when(pv.getProject()).thenReturn(sp);
 		Mockito.when(sp.getId()).thenReturn(0l);
@@ -76,8 +74,7 @@ public class RevisionManagerTests {
 		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
 		
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
-		
-		assertEquals(r, rm.projectVersionToRevision(pv));
+		assertNotNull(rm.projectVersionToRevision(pv));
 	}
 	
 	@Test
