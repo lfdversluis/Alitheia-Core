@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNull;
 
 import java.net.MalformedURLException;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -16,13 +16,11 @@ import org.osgi.framework.BundleContext;
 import eu.sqooss.core.AlitheiaCore;
 import eu.sqooss.impl.service.fds.RevisionManager;
 import eu.sqooss.impl.service.tds.DataAccessorFactory;
-import eu.sqooss.impl.service.tds.TDSServiceImpl;
 import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectFileState;
 import eu.sqooss.service.db.ProjectVersion;
 import eu.sqooss.service.db.StoredProject;
 import eu.sqooss.service.logging.Logger;
-import eu.sqooss.service.tds.DataAccessor;
 import eu.sqooss.service.tds.InvalidAccessorException;
 import eu.sqooss.service.tds.ProjectAccessor;
 import eu.sqooss.service.tds.Revision;
@@ -36,11 +34,10 @@ public class RevisionManagerTests {
 	static Bundle b; 
 	static Logger l;
 	
-	CoreActivator act;
+	static CoreActivator act;
 	
-	@Before
-    public void setUp() throws MalformedURLException{
-		
+	@BeforeClass
+	 public static void setUp() throws MalformedURLException {
 		// Start the core
 		act = new CoreActivator();
 		b = act.getBundle();
