@@ -59,7 +59,6 @@ public class RevisionManagerTests {
 	
 	@Test
 	public void TestProjectVersionToRevisionSuccess() throws InvalidAccessorException{
-		
 		RevisionManager rm = new RevisionManager(l);
 		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
 		StoredProject sp = Mockito.mock(StoredProject.class);

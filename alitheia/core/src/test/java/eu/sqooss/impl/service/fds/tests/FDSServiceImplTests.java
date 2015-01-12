@@ -19,8 +19,10 @@ import org.mockito.Mockito;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
+import eu.sqooss.core.AlitheiaCore;
 import eu.sqooss.impl.service.fds.FDSServiceImpl;
 import eu.sqooss.impl.service.fds.RevisionManager;
+import eu.sqooss.impl.service.tds.DataAccessorFactory;
 import eu.sqooss.service.db.ProjectFile;
 import eu.sqooss.service.db.ProjectFileState;
 import eu.sqooss.service.db.ProjectVersion;
@@ -77,6 +79,11 @@ public class FDSServiceImplTests {
 	}
 	
 	@Test
+	public void TestRun(){
+		impl.run();
+	}
+	
+	@Test
 	public void TestTimeLineImplSucces(){
 		StoredProject c = new StoredProject("testProject");
 		assertNotNull(c);
@@ -96,31 +103,26 @@ public class FDSServiceImplTests {
 		assertNull(impl.getFile(pf));
 	}
 	
-	@Test
-	public void TestGetFileSuccess() throws InvalidAccessorException {
-		ProjectFile pf = Mockito.mock(ProjectFile.class);
-		ProjectFileState pfs = Mockito.mock(ProjectFileState.class);
-		Revision r = Mockito.mock(Revision.class);
-		TDSService tds = Mockito.mock(TDSService.class);
-		ProjectAccessor pa = Mockito.mock(ProjectAccessor.class);
-		StoredProject sp = Mockito.mock(StoredProject.class);
-		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
-		SCMAccessor sa = Mockito.mock(SCMAccessor.class);
-		
-		Mockito.when(pf.getState()).thenReturn(pfs);
-		Mockito.when(pfs.toString()).thenReturn("ADDED");
-		Mockito.when(pf.getProjectVersion()).thenReturn(pv);
-		Mockito.when(pv.getRevisionId()).thenReturn("1337");
-		Mockito.when(pv.getProject()).thenReturn(sp);
-		Mockito.when(sp.getId()).thenReturn(0l);
-		Mockito.when(tds.getAccessor(0)).thenReturn(pa);
-		Mockito.when(pa.getSCMAccessor()).thenReturn(sa);
-		Mockito.when(sa.newRevision("1337" )).thenReturn(r);
-		
-		RevisionManager rm = new RevisionManager(l);
-		
-		assertEquals(r, rm.projectFileRevision(pf, tds));
-	}
+//	@Test
+//	public void TestGetFileSuccess() throws InvalidAccessorException {
+//		ProjectFile pf = Mockito.mock(ProjectFile.class);
+//		ProjectFileState pfs = Mockito.mock(ProjectFileState.class);
+//		StoredProject sp = Mockito.mock(StoredProject.class);
+//		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
+//		
+//		Mockito.when(pf.getState()).thenReturn(pfs);
+//		Mockito.when(pfs.toString()).thenReturn("ADDED");
+//		Mockito.when(pf.getProjectVersion()).thenReturn(pv);
+//		Mockito.when(pv.getRevisionId()).thenReturn("1337");
+//		Mockito.when(pv.getProject()).thenReturn(sp);
+//		Mockito.when(sp.getId()).thenReturn(0l);
+//		
+//		// add data accessor for http scheme
+//		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+//		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
+//		
+//		assertNotNull(impl.getFile(pf));
+//	}
 	
 	@Test
 	public void TestUpdateCheckoutCNull() throws CheckoutException{
@@ -148,5 +150,21 @@ public class FDSServiceImplTests {
 		impl.releaseCheckout(odc);
 		assertFalse(dir.exists());
 	}
+	
+//	@Test
+//	public void TestCreateNewRevisionFailure() throws CheckoutException{
+//		ProjectVersion pv = Mockito.mock(ProjectVersion.class);
+//		StoredProject sp = Mockito.mock(StoredProject.class);
+//		
+//		Mockito.when(pv.getProject()).thenReturn(sp);
+//		Mockito.when(sp.getId()).thenReturn(0l);
+//		
+//		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+//		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
+//		
+//		SCMAccessor scma = impl.createNewRevision(pv);
+//		
+//		assertNull(scma);
+//	}
 
 }
