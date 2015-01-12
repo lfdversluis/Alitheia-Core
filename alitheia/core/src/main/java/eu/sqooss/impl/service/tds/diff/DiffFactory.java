@@ -30,9 +30,10 @@
  *
  */
 
-package eu.sqooss.service.tds;
+package eu.sqooss.impl.service.tds.diff;
 
-import eu.sqooss.impl.service.tds.diff.UnifiedDiffParser;
+import eu.sqooss.service.tds.Diff;
+import eu.sqooss.service.tds.Revision;
 
 /**
  * Class that knows how to parse different diff formats.
