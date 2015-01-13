@@ -381,6 +381,12 @@ public class FDSServiceImpl implements FDSService, Runnable {
         return createCheckout(svn, pv, path);
     }
     
+    /**
+     * This function creates a new Revision and returns the DataAccessor of a project
+     * @param pv the project version of a project
+     * @return The DataAccessor of the project
+     * @throws CheckoutException
+     */
     public SCMAccessor createNewRevision(ProjectVersion pv) throws CheckoutException{
     	long projectId = pv.getProject().getId();
         SCMAccessor svn = null;
@@ -409,8 +415,7 @@ public class FDSServiceImpl implements FDSService, Runnable {
         OnDiskCheckoutImpl cimpl = (OnDiskCheckoutImpl) c;
         cimpl.lock();
 
-        // Check if an update took place while waiting for the lock to become
-        // available
+        // Check if an update took place while waiting for the lock to become available
         if (cimpl.getProjectVersion().gt(pv)) {
             logger.error("Error updating checkout. Checkout has been"
                     + " already updated to a newer version");
@@ -496,5 +501,15 @@ public class FDSServiceImpl implements FDSService, Runnable {
         fdsCheckoutRoot = new File(s);
 
         return true;
+    }
+    
+    // Functions meant for TESTING ONLY below
+    
+    public void setTDS(TDSService t){
+    	tds = t;
+    }
+    
+    public void setCheckoutHandles(ConcurrentHashMap<OnDiskCheckout, Integer> c){
+    	checkoutHandles = c;
     }
 }
