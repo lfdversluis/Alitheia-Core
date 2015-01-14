@@ -36,6 +36,7 @@ import eu.sqooss.service.tds.ProjectAccessor;
 import eu.sqooss.service.tds.Revision;
 import eu.sqooss.service.tds.SCMAccessor;
 import eu.sqooss.service.tds.TDSService;
+import eu.sqooss.test.accessors.TestSCMDataAccessor;
 
 public class FDSServiceImplTests {
 
@@ -172,7 +173,7 @@ public class FDSServiceImplTests {
 	public void TestGetInMemoryCheckoutNoAccessor() throws CheckoutException, InvalidAccessorException{
 
 		// add data accessor for http scheme
-		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		DataAccessorFactory.addImplementation("http", TestSCMDataAccessor.class);
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 
 		Mockito.when(tds.projectExists(0)).thenReturn(true);
@@ -187,7 +188,7 @@ public class FDSServiceImplTests {
 	public void TestGetInMemoryCheckoutProjectNotExisting() throws CheckoutException, InvalidAccessorException{
 
 		// add data accessor for http scheme
-		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		DataAccessorFactory.addImplementation("http", TestSCMDataAccessor.class);
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 
 		Mockito.when(tds.projectExists(0)).thenReturn(false);
@@ -201,7 +202,7 @@ public class FDSServiceImplTests {
 	public void TestGetInMemoryCheckoutProjectSuccess() throws CheckoutException, InvalidAccessorException{
 
 		// add data accessor for http scheme
-		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		DataAccessorFactory.addImplementation("http", TestSCMDataAccessor.class);
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 
 		ProjectAccessor a = Mockito.mock(ProjectAccessor.class);
@@ -219,7 +220,7 @@ public class FDSServiceImplTests {
 	
 	@Test
 	public void TestGetCheckoutSuccess() throws CheckoutException{
-		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		DataAccessorFactory.addImplementation("http", TestSCMDataAccessor.class);
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 
 		Mockito.when(tds.projectExists(0)).thenReturn(true);
@@ -246,7 +247,7 @@ public class FDSServiceImplTests {
 	@Test
 	public void TestGetFileNull() throws InvalidAccessorException {
 		// add data accessor for http scheme
-		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		DataAccessorFactory.addImplementation("http", TestSCMDataAccessor.class);
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 
 		impl.setTDS(tds);
@@ -256,7 +257,7 @@ public class FDSServiceImplTests {
 	
 	@Test
 	public void TestCreateNewRevision() throws CheckoutException{
-		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		DataAccessorFactory.addImplementation("http", TestSCMDataAccessor.class);
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 
 		Mockito.when(tds.projectExists(0)).thenReturn(false);
@@ -268,7 +269,7 @@ public class FDSServiceImplTests {
 	
 	@Test
 	public void TestGetFileContentsSuccess() {
-		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		DataAccessorFactory.addImplementation("http", TestSCMDataAccessor.class);
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 
 		impl.setTDS(tds);

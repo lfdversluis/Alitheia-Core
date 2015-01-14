@@ -9,6 +9,7 @@ import eu.sqooss.service.db.Bug;
 import eu.sqooss.service.db.Developer;
 import eu.sqooss.service.db.MailingListThread;
 import eu.sqooss.service.db.ProjectVersion;
+import eu.sqooss.service.metricactivator.Result;
 import eu.sqooss.service.pa.PluginInfo;
 
 @MetricDeclarations(metrics={
@@ -35,5 +36,4 @@ public class TestMetric extends AbstractMetric {
 		
 		return result;
 	}
-
 }

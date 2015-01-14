@@ -26,6 +26,7 @@ import eu.sqooss.service.tds.ProjectAccessor;
 import eu.sqooss.service.tds.Revision;
 import eu.sqooss.service.tds.SCMAccessor;
 import eu.sqooss.service.tds.TDSService;
+import eu.sqooss.test.accessors.TestSCMDataAccessor;
 
 public class RevisionManagerTests {
 	
@@ -67,7 +68,7 @@ public class RevisionManagerTests {
 		Mockito.when(sp.getId()).thenReturn(0l);
 		
 		// add data accessor for http scheme
-		DataAccessorFactory.addImplementation("http", TestDataAccessor.class);
+		DataAccessorFactory.addImplementation("http", TestSCMDataAccessor.class);
 		
 		AlitheiaCore.getInstance().getTDSService().addAccessor(pv.getProject().getId(), "test", "test", "test", "http://google.nl");
 		assertNotNull(rm.projectVersionToRevision(pv));

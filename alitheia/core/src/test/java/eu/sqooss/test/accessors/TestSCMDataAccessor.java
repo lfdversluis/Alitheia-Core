@@ -1,9 +1,11 @@
-package eu.sqooss.impl.service.fds.tests;
+package eu.sqooss.test.accessors;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.OutputStream;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +14,6 @@ import org.mockito.Mockito;
 import eu.sqooss.service.tds.AccessorException;
 import eu.sqooss.service.tds.AnnotatedLine;
 import eu.sqooss.service.tds.CommitLog;
-import eu.sqooss.service.tds.DataAccessor;
 import eu.sqooss.service.tds.Diff;
 import eu.sqooss.service.tds.InvalidProjectRevisionException;
 import eu.sqooss.service.tds.InvalidRepositoryException;
@@ -21,12 +22,19 @@ import eu.sqooss.service.tds.SCMAccessor;
 import eu.sqooss.service.tds.SCMNode;
 import eu.sqooss.service.tds.SCMNodeType;
 
-public class TestDataAccessor implements SCMAccessor {
+public class TestSCMDataAccessor implements SCMAccessor {
 
 	@Override
 	public List<URI> getSupportedURLSchemes() {
 		// TODO Auto-generated method stub
-		return null;
+		List<URI> a = new ArrayList<URI>();
+		try {
+			a.add(new URI("scm"));
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override

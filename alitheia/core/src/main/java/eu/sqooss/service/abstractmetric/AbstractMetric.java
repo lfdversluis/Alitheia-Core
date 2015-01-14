@@ -342,7 +342,7 @@ public abstract class AbstractMetric implements AlitheiaPlugin {
      @SuppressWarnings("unchecked")
      public List<Result> getResultIfAlreadyCalculated(DAObject o, List<Metric> l) throws MetricMismatchException {
         List<Result> result = new ArrayList<Result>();
-        
+                
         for (Metric m : l) {
             if (!metrics.containsKey(m.getMnemonic())) {
                 throw new MetricMismatchException("Metric " + m.getMnemonic()

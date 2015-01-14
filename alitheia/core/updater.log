@@ -1158,3 +1158,610 @@ INFO - Got a valid reference to the logger
 INFO - Succesfully started updater service
 INFO - Got a valid reference to the logger
 INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+WARN - Project Mock for StoredProject, hashCode: 2042459426 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+WARN - Project Mock for StoredProject, hashCode: 98198174 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1304935136 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1817959651 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 319796635 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1941827588 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1637795207 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 775237509 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1037466642 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1663991027 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 2054541752 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1699309382 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 854633701 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 892877047 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 6096042 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1056918815 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 6096042 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1342558279 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 470635528 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - Project Mock for StoredProject, hashCode: 470635528 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 2053675953 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 2053675953 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 323748009 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 323748009 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 978154223 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 978154223 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 2053675953 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 2053675953 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1797279368 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 1797279368 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 850708176 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 850708176 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 896136118 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 896136118 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1852587172 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 1852587172 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1396821111 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 1396821111 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+WARN - Project Mock for StoredProject, hashCode: 1384218227 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+WARN - Project Mock for StoredProject, hashCode: 173039110 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+WARN - Project Mock for StoredProject, hashCode: 1116790814 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1003971986 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 1003971986 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+WARN - Project Mock for StoredProject, hashCode: 1278778822 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 369359274 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 369359274 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+WARN - Project Mock for StoredProject, hashCode: 1462733036 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 892877047 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 892877047 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1941760442 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 1941760442 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 42120482 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 42120482 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 2006248882 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 2006248882 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 978154223 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 978154223 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 558942701 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 558942701 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 2053675953 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 2053675953 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 323748009 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 323748009 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 978154223 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 978154223 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 2053675953 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 2053675953 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+WARN - Cannot remove an update job for a null project
+WARN - Job eu.sqooss.test.impl.service.updater.MetadataUpdaterTest@34a2a147 has been scheduled before, ignoring
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 850708176 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 850708176 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 2081779907 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 2081779907 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Registering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest for protocols ([]) and stage INFERENCE
+ERROR - Class class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest is missing required annotation @Updater
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterTest
+INFO - Unregistering updater class eu.sqooss.test.impl.service.updater.MetadataUpdaterFailingTest
+INFO - Bad project name for update.
+WARN - Project Mock for StoredProject, hashCode: 1524446485 not assigned to any cluster node
+INFO - Request to update project:null stage:all updater:null
+WARN - No such updater: test
+WARN - Project Mock for StoredProject, hashCode: 1524446485 not assigned to any cluster node
+INFO - Request to update project:null stage:null updater:null
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service
+INFO - Got a valid reference to the logger
+INFO - Succesfully started updater service

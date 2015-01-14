@@ -27,6 +27,7 @@ public class CoreActivator {
 		 table.put(org.osgi.framework.Constants.BUNDLE_NAME, "test");
 		 table.put(org.osgi.framework.Constants.BUNDLE_VERSION, "1.42");
 		 table.put(org.osgi.framework.Constants.BUNDLE_DESCRIPTION, "test description");
+		 table.put(org.osgi.framework.Constants.BUNDLE_CONTACTADDRESS, "Piet Tester");
 		 Mockito.when(b.getHeaders()).thenReturn(table);
 		 bc = Mockito.mock(BundleContext.class);
 		 Mockito.when(bc.getProperty("eu.sqooss.db")).thenReturn("mysql");
@@ -36,12 +37,18 @@ public class CoreActivator {
 		 Mockito.when(bc.getProperty("eu.sqooss.db.passwd")).thenReturn("alitheia");
 		 Mockito.when(bc.getProperty("eu.sqooss.db.conpool")).thenReturn("c3p0");
 		 Mockito.when(bc.getBundle()).thenReturn(b);
+		 
+		 ServiceReference mockRef = Mockito.mock(ServiceReference.class);
+		 Mockito.when(bc.getServiceReference(AlitheiaCore.class.getName())).thenReturn(mockRef);
+		 
 		 // mock HTTP server
 		 ServiceReference sr = Mockito.mock(ServiceReference.class);
 		 HttpService hs = Mockito.mock(HttpService.class);
 		 Mockito.when(bc.getServiceReference(HttpService.class.getName())).thenReturn(sr);
 		 Mockito.when(bc.getService(sr)).thenReturn(hs);
 		core = new AlitheiaCore(bc);
+		
+		Mockito.when(bc.getService(mockRef)).thenReturn(core);
 	}
 	
 	public Bundle getBundle(){

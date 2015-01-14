@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.BeforeClass;
@@ -21,7 +23,10 @@ import eu.sqooss.impl.service.fds.tests.CoreActivator;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
 import eu.sqooss.service.db.DAObject;
 import eu.sqooss.service.db.Metric;
+import eu.sqooss.service.db.MetricType;
+import eu.sqooss.service.db.MetricType.Type;
 import eu.sqooss.service.db.ProjectVersionMeasurement;
+import eu.sqooss.service.metricactivator.AlreadyProcessingException;
 import eu.sqooss.service.metricactivator.MetricMismatchException;
 
 public class AbstractMetricTest {
@@ -42,7 +47,7 @@ public class AbstractMetricTest {
     }
 
     @Test
-    public void testInstallRemove() throws MetricMismatchException, ClassNotFoundException {
+    public void testInstallRemove() throws AlreadyProcessingException, Exception {
 
     	// start a database session
     	AlitheiaCore.getInstance().getDBService().startDBSession();
@@ -55,6 +60,15 @@ public class AbstractMetricTest {
     	assertFalse(tm.install());
     	AlitheiaCore.getInstance().getDBService().commitDBSession();
     	
+    	List<Metric> l = new ArrayList<Metric>();
+    	Metric m = Mockito.mock(Metric.class);
+    	DAObject o = Mockito.mock(DAObject.class);
+    	Mockito.when(o.getId()).thenReturn((long) 42);
+    	Mockito.when(m.getMnemonic()).thenReturn("CONTRIB");
+    	Mockito.when(m.getMetricType()).thenReturn(new MetricType(Type.DEVELOPER));
+    	l.add(m);
+    	tm.getResultIfAlreadyCalculated(o, l);
+    	
     	assertEquals(tm.getName(), "test");
     	assertEquals(tm.getVersion(), "1.42");
     	assertEquals(tm.getDescription(), "test description");
@@ -64,6 +78,11 @@ public class AbstractMetricTest {
     	assertTrue(tm.remove());
     	AlitheiaCore.getInstance().getDBService().commitDBSession();
     	assertTrue(tm.cleanup(null));
+    }
+    
+    @Test
+    public void testGetAuthor() {
+    	assertEquals(tm.getAuthor(), "Piet Tester");
     }
     
     @Test
@@ -86,5 +105,15 @@ public class AbstractMetricTest {
     public void testGetActivationTypes() {
     	Set<Class<? extends DAObject>> activations = tm.getActivationTypes();
     	assertEquals(activations.size(), 1);
+    }
+    
+    @Test
+    public void testGetAllSupportedMetrics() {
+    	assertNotNull(tm.getAllSupportedMetrics());
+    }
+    
+    @Test
+    public void testUpdate() {
+    	tm.update();
     }
 }

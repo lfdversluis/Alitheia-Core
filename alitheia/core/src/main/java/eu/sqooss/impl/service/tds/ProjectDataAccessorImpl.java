@@ -122,7 +122,7 @@ public class ProjectDataAccessorImpl implements ProjectAccessor {
             	logger.warn("Error converting to URI: " + scm);
             	return null;
             }
-
+    		
 			if (scmAccessor == null) {
 				scmAccessor = (SCMAccessor) DataAccessorFactory.getInstance(
 						uri, name);
