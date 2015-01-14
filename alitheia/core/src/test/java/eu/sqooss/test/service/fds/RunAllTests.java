@@ -1,4 +1,4 @@
-package eu.sqooss.impl.service.fds.tests;
+package eu.sqooss.test.service.fds;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

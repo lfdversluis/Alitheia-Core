@@ -10,8 +10,8 @@ import java.util.Set;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import eu.sqooss.impl.service.fds.tests.CoreActivator;
 import eu.sqooss.impl.service.rest.RestServiceApp;
+import eu.sqooss.test.service.fds.CoreActivator;
 
 public class RestServiceAppTests {
 	

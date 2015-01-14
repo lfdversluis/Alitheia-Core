@@ -1,4 +1,4 @@
-package eu.sqooss.impl.service.fds.tests;
+package eu.sqooss.test.service.fds;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

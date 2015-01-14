@@ -1,4 +1,4 @@
-package eu.squooss.test.impl.service.tds.diff;
+package eu.sqooss.test.impl.service.tds.diff;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -8,9 +8,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import eu.sqooss.impl.service.fds.tests.CoreActivator;
 import eu.sqooss.impl.service.tds.diff.DiffFactory;
 import eu.sqooss.service.tds.Revision;
+import eu.sqooss.test.service.fds.CoreActivator;
 
 public class DiffFactoryTests {
 	

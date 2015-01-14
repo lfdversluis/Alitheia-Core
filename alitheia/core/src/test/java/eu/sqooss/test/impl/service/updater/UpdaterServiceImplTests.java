@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.fds.tests.CoreActivator;
 import eu.sqooss.impl.service.tds.DataAccessorFactory;
 import eu.sqooss.impl.service.updater.UpdaterServiceImpl;
 import eu.sqooss.service.db.StoredProject;
@@ -20,6 +19,7 @@ import eu.sqooss.service.updater.UpdaterService.UpdaterStage;
 import eu.sqooss.test.accessors.TestBTSDataAccessor;
 import eu.sqooss.test.accessors.TestMailAccessor;
 import eu.sqooss.test.accessors.TestSCMDataAccessor;
+import eu.sqooss.test.service.fds.CoreActivator;
 
 public class UpdaterServiceImplTests {
 	

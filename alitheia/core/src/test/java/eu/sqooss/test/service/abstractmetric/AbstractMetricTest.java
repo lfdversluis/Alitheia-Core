@@ -19,7 +19,6 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.service.http.HttpService;
 
 import eu.sqooss.core.AlitheiaCore;
-import eu.sqooss.impl.service.fds.tests.CoreActivator;
 import eu.sqooss.service.abstractmetric.AbstractMetric;
 import eu.sqooss.service.db.DAObject;
 import eu.sqooss.service.db.Metric;
@@ -28,6 +27,7 @@ import eu.sqooss.service.db.MetricType.Type;
 import eu.sqooss.service.db.ProjectVersionMeasurement;
 import eu.sqooss.service.metricactivator.AlreadyProcessingException;
 import eu.sqooss.service.metricactivator.MetricMismatchException;
+import eu.sqooss.test.service.fds.CoreActivator;
 
 public class AbstractMetricTest {
 	

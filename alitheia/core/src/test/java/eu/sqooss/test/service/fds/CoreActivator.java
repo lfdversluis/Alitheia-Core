@@ -1,4 +1,4 @@
-package eu.sqooss.impl.service.fds.tests;
+package eu.sqooss.test.service.fds;
 
 import java.io.File;
 import java.net.MalformedURLException;
