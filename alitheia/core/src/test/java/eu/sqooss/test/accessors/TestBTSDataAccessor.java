@@ -13,37 +13,31 @@ public class TestBTSDataAccessor implements BTSAccessor {
 
 	@Override
 	public List<URI> getSupportedURLSchemes() {
-		// TODO Auto-generated method stub
 		return new ArrayList<URI>();
 	}
 
 	@Override
 	public void init(URI dataURL, String projectName) throws AccessorException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public BTSEntry getBug(String bugID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<String> getAllBugs() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<String> getBugsNewerThan(Date d) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -8,19 +8,16 @@ public class MetadataUpdaterFailingTest implements MetadataUpdater {
 
 	@Override
 	public void setUpdateParams(StoredProject sp, Logger l) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void update() throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public int progress() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
